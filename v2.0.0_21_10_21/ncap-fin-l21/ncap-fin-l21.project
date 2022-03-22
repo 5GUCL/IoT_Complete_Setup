@@ -1,0 +1,1288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeLite_Project Name="ncap-fin-l21" Version="11000" InternalType="Console">
+  <Plugins>
+    <Plugin Name="qmake">
+      <![CDATA[00020001N0005Debug0000000000000001N0007Release000000000000]]>
+    </Plugin>
+  </Plugins>
+  <VirtualDirectory Name="docs">
+    <File Name="docs/README.txt"/>
+    <File Name="docs/Version.txt"/>
+    <File Name="docs/LICENSE.txt"/>
+  </VirtualDirectory>
+  <VirtualDirectory Name="run">
+    <VirtualDirectory Name="ncap-fin-l21-config">
+      <File Name="run/ncap-fin-l21-config/ncap_prod_config.json"/>
+      <File Name="run/ncap-fin-l21-config/ncap_config.yaml"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="ncap-fin-l21-certs">
+      <File Name="run/ncap-fin-l21-certs/letsencrypt-cacert.pem"/>
+    </VirtualDirectory>
+  </VirtualDirectory>
+  <VirtualDirectory Name="include">
+    <File Name="include/ncap_app_constants.h"/>
+    <File Name="include/ncap_ws_data_source_subscriber.h"/>
+    <File Name="include/ncap_modbus_mappings.h"/>
+    <File Name="include/ncap_config_defs.h"/>
+    <VirtualDirectory Name="sf-sys">
+      <VirtualDirectory Name="si-units">
+        <File Name="include/sf-sys/si-units/si_unit_constants.h"/>
+      </VirtualDirectory>
+      <VirtualDirectory Name="utils">
+        <File Name="include/sf-sys/utils/cpp_prog_utils.h"/>
+        <File Name="include/sf-sys/utils/time_utils.h"/>
+      </VirtualDirectory>
+    </VirtualDirectory>
+    <File Name="include/ncap_supervisor.h"/>
+    <File Name="include/ncap_config_registry.h"/>
+    <File Name="include/ncap_device_auth_token.h"/>
+    <File Name="include/ncap_mqtt_backend.h"/>
+  </VirtualDirectory>
+  <VirtualDirectory Name="oss">
+    <VirtualDirectory Name="SI">
+      <File Name="oss/SI/force.h"/>
+      <File Name="oss/SI/power.h"/>
+      <File Name="oss/SI/illuminance.h"/>
+      <File Name="oss/SI/energy.h"/>
+      <File Name="oss/SI/luminosity.h"/>
+      <File Name="oss/SI/electric_current.h"/>
+      <File Name="oss/SI/absorbed_dose.h"/>
+      <File Name="oss/SI/length.h"/>
+      <File Name="oss/SI/radioactivity.h"/>
+      <File Name="oss/SI/magnetic_flux.h"/>
+      <File Name="oss/SI/luminous_flux.h"/>
+      <File Name="oss/SI/solid_angle.h"/>
+      <File Name="oss/SI/stream.h"/>
+      <File Name="oss/SI/area.h"/>
+      <File Name="oss/SI/angle.h"/>
+      <File Name="oss/SI/temperature.h"/>
+      <File Name="oss/SI/time.h"/>
+      <File Name="oss/SI/magnetic_field.h"/>
+      <File Name="oss/SI/electric_capacity.h"/>
+      <File Name="oss/SI/pressure.h"/>
+      <File Name="oss/SI/substance.h"/>
+      <File Name="oss/SI/velocity.h"/>
+      <File Name="oss/SI/inductance.h"/>
+      <File Name="oss/SI/catalytic_activity.h"/>
+      <File Name="oss/SI/frequency.h"/>
+      <File Name="oss/SI/electric_conductance.h"/>
+      <File Name="oss/SI/electric_resistance.h"/>
+      <File Name="oss/SI/electric_potential.h"/>
+      <File Name="oss/SI/equivalent_dose.h"/>
+      <File Name="oss/SI/momentum.h"/>
+      <File Name="oss/SI/acceleration.h"/>
+      <File Name="oss/SI/mass.h"/>
+      <File Name="oss/SI/electric_charge.h"/>
+      <File Name="oss/SI/astronomic.h"/>
+      <VirtualDirectory Name="detail">
+        <File Name="oss/SI/detail/eps_equal.h"/>
+        <File Name="oss/SI/detail/unit_cast.h"/>
+        <File Name="oss/SI/detail/detail.h"/>
+        <File Name="oss/SI/detail/unit.h"/>
+        <File Name="oss/SI/detail/number_parser.h"/>
+        <File Name="oss/SI/detail/operator_helpers.h"/>
+        <File Name="oss/SI/detail/unit_symbol.h"/>
+        <File Name="oss/SI/detail/cross_unit_operations.h"/>
+      </VirtualDirectory>
+    </VirtualDirectory>
+    <VirtualDirectory Name="cpr">
+      <File Name="oss/cpr/LICENSE"/>
+      <VirtualDirectory Name="src">
+        <File Name="oss/cpr/src/unix_socket.cpp"/>
+        <File Name="oss/cpr/src/response.cpp"/>
+        <File Name="oss/cpr/src/bearer.cpp"/>
+        <File Name="oss/cpr/src/timeout.cpp"/>
+        <File Name="oss/cpr/src/util.cpp"/>
+        <File Name="oss/cpr/src/auth.cpp"/>
+        <File Name="oss/cpr/src/cprtypes.cpp"/>
+        <File Name="oss/cpr/src/curlholder.cpp"/>
+        <File Name="oss/cpr/src/error.cpp"/>
+        <File Name="oss/cpr/src/cookies.cpp"/>
+        <File Name="oss/cpr/src/proxies.cpp"/>
+        <File Name="oss/cpr/src/session.cpp"/>
+        <File Name="oss/cpr/src/parameters.cpp"/>
+        <File Name="oss/cpr/src/redirect.cpp"/>
+        <File Name="oss/cpr/src/payload.cpp"/>
+        <File Name="oss/cpr/src/curl_container.cpp"/>
+        <File Name="oss/cpr/src/multipart.cpp"/>
+        <File Name="oss/cpr/src/proxyauth.cpp"/>
+      </VirtualDirectory>
+      <VirtualDirectory Name="include">
+        <File Name="oss/cpr/include/CMakeLists.txt"/>
+        <VirtualDirectory Name="cpr">
+          <File Name="oss/cpr/include/cpr/error.h"/>
+          <File Name="oss/cpr/include/cpr/status_codes.h"/>
+          <File Name="oss/cpr/include/cpr/bearer.h"/>
+          <File Name="oss/cpr/include/cpr/ssl_options.h"/>
+          <File Name="oss/cpr/include/cpr/verbose.h"/>
+          <File Name="oss/cpr/include/cpr/util.h"/>
+          <File Name="oss/cpr/include/cpr/redirect.h"/>
+          <File Name="oss/cpr/include/cpr/cpr.h"/>
+          <File Name="oss/cpr/include/cpr/digest.h"/>
+          <File Name="oss/cpr/include/cpr/multipart.h"/>
+          <File Name="oss/cpr/include/cpr/interface.h"/>
+          <File Name="oss/cpr/include/cpr/curlholder.h"/>
+          <File Name="oss/cpr/include/cpr/timeout.h"/>
+          <File Name="oss/cpr/include/cpr/user_agent.h"/>
+          <File Name="oss/cpr/include/cpr/body.h"/>
+          <File Name="oss/cpr/include/cpr/low_speed.h"/>
+          <File Name="oss/cpr/include/cpr/curl_container.h"/>
+          <File Name="oss/cpr/include/cpr/session.h"/>
+          <File Name="oss/cpr/include/cpr/http_version.h"/>
+          <File Name="oss/cpr/include/cpr/callback.h"/>
+          <File Name="oss/cpr/include/cpr/api.h"/>
+          <File Name="oss/cpr/include/cpr/ntlm.h"/>
+          <File Name="oss/cpr/include/cpr/proxyauth.h"/>
+          <File Name="oss/cpr/include/cpr/unix_socket.h"/>
+          <File Name="oss/cpr/include/cpr/cookies.h"/>
+          <File Name="oss/cpr/include/cpr/proxies.h"/>
+          <File Name="oss/cpr/include/cpr/connect_timeout.h"/>
+          <File Name="oss/cpr/include/cpr/response.h"/>
+          <File Name="oss/cpr/include/cpr/parameters.h"/>
+          <File Name="oss/cpr/include/cpr/payload.h"/>
+          <File Name="oss/cpr/include/cpr/cprtypes.h"/>
+          <File Name="oss/cpr/include/cpr/auth.h"/>
+          <File Name="oss/cpr/include/cpr/limit_rate.h"/>
+        </VirtualDirectory>
+      </VirtualDirectory>
+    </VirtualDirectory>
+    <VirtualDirectory Name="mqtt_cpp">
+      <VirtualDirectory Name="include">
+        <File Name="oss/mqtt_cpp/include/mqtt_server_cpp.hpp"/>
+        <File Name="oss/mqtt_cpp/include/mqtt_client_cpp.hpp"/>
+        <VirtualDirectory Name="mqtt">
+          <File Name="oss/mqtt_cpp/include/mqtt/const_buffer_util.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/connect_flags.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/shared_scope_guard.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/message_variant.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/log.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/visitor_util.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/variable_length.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/property_id.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/string_check.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/time_point_t.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/string_view.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/session_present.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/type_erased_socket.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/protocol_version.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/null_strand.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/remaining_length.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/hexdump.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/variant_visit.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/strand.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/async_client.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/publish.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/subscribe_options.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/deprecated_msg.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/message.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/v5_message.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/move.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/topic_alias_send.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/any.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/constant.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/four_byte_util.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/optional.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/config.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/tcp_endpoint.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/property_parse.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/packet_id_type.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/reason_code.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/namespace.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/sync_client.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/error_code.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/will.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/control_packet_type.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/buffer.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/server.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/connect_return_code.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/two_or_four_byte_util.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/exception.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/utf8encoded_strings.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/property.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/tls.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/property_variant.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/endpoint.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/shared_ptr_array.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/type.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/client.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/attributes.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/variant.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/topic_alias_recv.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/two_byte_util.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/subscribe_entry.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/setup_log.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/packet_id_manager.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/fixed_header.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/ws_endpoint.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/deprecated.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/shared_subscriptions.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/callable_overlay.hpp"/>
+          <File Name="oss/mqtt_cpp/include/mqtt/value_allocator.hpp"/>
+          <VirtualDirectory Name="broker">
+            <File Name="oss/mqtt_cpp/include/mqtt/broker/offline_message.hpp"/>
+            <File Name="oss/mqtt_cpp/include/mqtt/broker/mutex.hpp"/>
+            <File Name="oss/mqtt_cpp/include/mqtt/broker/time_point_t.hpp"/>
+            <File Name="oss/mqtt_cpp/include/mqtt/broker/property_util.hpp"/>
+            <File Name="oss/mqtt_cpp/include/mqtt/broker/tags.hpp"/>
+            <File Name="oss/mqtt_cpp/include/mqtt/broker/retained_topic_map.hpp"/>
+            <File Name="oss/mqtt_cpp/include/mqtt/broker/broker.hpp"/>
+            <File Name="oss/mqtt_cpp/include/mqtt/broker/shared_target_impl.hpp"/>
+            <File Name="oss/mqtt_cpp/include/mqtt/broker/subscription_map.hpp"/>
+            <File Name="oss/mqtt_cpp/include/mqtt/broker/common_type.hpp"/>
+            <File Name="oss/mqtt_cpp/include/mqtt/broker/inflight_message.hpp"/>
+            <File Name="oss/mqtt_cpp/include/mqtt/broker/session_state.hpp"/>
+            <File Name="oss/mqtt_cpp/include/mqtt/broker/retain_t.hpp"/>
+            <File Name="oss/mqtt_cpp/include/mqtt/broker/shared_target.hpp"/>
+            <File Name="oss/mqtt_cpp/include/mqtt/broker/broker_namespace.hpp"/>
+            <File Name="oss/mqtt_cpp/include/mqtt/broker/subscription.hpp"/>
+            <File Name="oss/mqtt_cpp/include/mqtt/broker/sub_con_map.hpp"/>
+            <File Name="oss/mqtt_cpp/include/mqtt/broker/retained_messages.hpp"/>
+            <File Name="oss/mqtt_cpp/include/mqtt/broker/session_state_fwd.hpp"/>
+            <File Name="oss/mqtt_cpp/include/mqtt/broker/topic_filter_tokenizer.hpp"/>
+          </VirtualDirectory>
+        </VirtualDirectory>
+      </VirtualDirectory>
+    </VirtualDirectory>
+    <VirtualDirectory Name="fmt">
+      <File Name="oss/fmt/compile.h"/>
+      <File Name="oss/fmt/ranges.h"/>
+      <File Name="oss/fmt/core.h"/>
+      <File Name="oss/fmt/printf.h"/>
+      <File Name="oss/fmt/xchar.h"/>
+      <File Name="oss/fmt/os.h"/>
+      <File Name="oss/fmt/ostream.h"/>
+      <File Name="oss/fmt/color.h"/>
+      <File Name="oss/fmt/format-inl.h"/>
+      <File Name="oss/fmt/locale.h"/>
+      <File Name="oss/fmt/format.h"/>
+      <File Name="oss/fmt/args.h"/>
+      <File Name="oss/fmt/chrono.h"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="spdlog">
+      <File Name="oss/spdlog/formatter.h"/>
+      <File Name="oss/spdlog/async_logger.h"/>
+      <File Name="oss/spdlog/async.h"/>
+      <File Name="oss/spdlog/common.h"/>
+      <File Name="oss/spdlog/pattern_formatter-inl.h"/>
+      <File Name="oss/spdlog/version.h"/>
+      <File Name="oss/spdlog/async_logger-inl.h"/>
+      <File Name="oss/spdlog/logger.h"/>
+      <File Name="oss/spdlog/spdlog.h"/>
+      <File Name="oss/spdlog/common-inl.h"/>
+      <File Name="oss/spdlog/spdlog-inl.h"/>
+      <File Name="oss/spdlog/fwd.h"/>
+      <File Name="oss/spdlog/pattern_formatter.h"/>
+      <File Name="oss/spdlog/logger-inl.h"/>
+      <File Name="oss/spdlog/tweakme.h"/>
+      <File Name="oss/spdlog/stopwatch.h"/>
+      <VirtualDirectory Name="sinks">
+        <File Name="oss/spdlog/sinks/win_eventlog_sink.h"/>
+        <File Name="oss/spdlog/sinks/udp_sink.h"/>
+        <File Name="oss/spdlog/sinks/ansicolor_sink-inl.h"/>
+        <File Name="oss/spdlog/sinks/daily_file_sink.h"/>
+        <File Name="oss/spdlog/sinks/base_sink.h"/>
+        <File Name="oss/spdlog/sinks/msvc_sink.h"/>
+        <File Name="oss/spdlog/sinks/rotating_file_sink.h"/>
+        <File Name="oss/spdlog/sinks/rotating_file_sink-inl.h"/>
+        <File Name="oss/spdlog/sinks/wincolor_sink.h"/>
+        <File Name="oss/spdlog/sinks/android_sink.h"/>
+        <File Name="oss/spdlog/sinks/base_sink-inl.h"/>
+        <File Name="oss/spdlog/sinks/stdout_color_sinks-inl.h"/>
+        <File Name="oss/spdlog/sinks/stdout_color_sinks.h"/>
+        <File Name="oss/spdlog/sinks/dist_sink.h"/>
+        <File Name="oss/spdlog/sinks/stdout_sinks.h"/>
+        <File Name="oss/spdlog/sinks/hourly_file_sink.h"/>
+        <File Name="oss/spdlog/sinks/basic_file_sink-inl.h"/>
+        <File Name="oss/spdlog/sinks/basic_file_sink.h"/>
+        <File Name="oss/spdlog/sinks/sink.h"/>
+        <File Name="oss/spdlog/sinks/dup_filter_sink.h"/>
+        <File Name="oss/spdlog/sinks/mongo_sink.h"/>
+        <File Name="oss/spdlog/sinks/syslog_sink.h"/>
+        <File Name="oss/spdlog/sinks/ringbuffer_sink.h"/>
+        <File Name="oss/spdlog/sinks/wincolor_sink-inl.h"/>
+        <File Name="oss/spdlog/sinks/sink-inl.h"/>
+        <File Name="oss/spdlog/sinks/null_sink.h"/>
+        <File Name="oss/spdlog/sinks/tcp_sink.h"/>
+        <File Name="oss/spdlog/sinks/ostream_sink.h"/>
+        <File Name="oss/spdlog/sinks/systemd_sink.h"/>
+        <File Name="oss/spdlog/sinks/qt_sinks.h"/>
+        <File Name="oss/spdlog/sinks/stdout_sinks-inl.h"/>
+        <File Name="oss/spdlog/sinks/ansicolor_sink.h"/>
+      </VirtualDirectory>
+      <VirtualDirectory Name="details">
+        <File Name="oss/spdlog/details/tcp_client-windows.h"/>
+        <File Name="oss/spdlog/details/periodic_worker.h"/>
+        <File Name="oss/spdlog/details/tcp_client.h"/>
+        <File Name="oss/spdlog/details/periodic_worker-inl.h"/>
+        <File Name="oss/spdlog/details/udp_client-windows.h"/>
+        <File Name="oss/spdlog/details/os-inl.h"/>
+        <File Name="oss/spdlog/details/registry.h"/>
+        <File Name="oss/spdlog/details/os.h"/>
+        <File Name="oss/spdlog/details/log_msg.h"/>
+        <File Name="oss/spdlog/details/fmt_helper.h"/>
+        <File Name="oss/spdlog/details/file_helper-inl.h"/>
+        <File Name="oss/spdlog/details/file_helper.h"/>
+        <File Name="oss/spdlog/details/backtracer.h"/>
+        <File Name="oss/spdlog/details/udp_client.h"/>
+        <File Name="oss/spdlog/details/null_mutex.h"/>
+        <File Name="oss/spdlog/details/registry-inl.h"/>
+        <File Name="oss/spdlog/details/synchronous_factory.h"/>
+        <File Name="oss/spdlog/details/windows_include.h"/>
+        <File Name="oss/spdlog/details/log_msg-inl.h"/>
+        <File Name="oss/spdlog/details/circular_q.h"/>
+        <File Name="oss/spdlog/details/thread_pool-inl.h"/>
+        <File Name="oss/spdlog/details/thread_pool.h"/>
+        <File Name="oss/spdlog/details/console_globals.h"/>
+        <File Name="oss/spdlog/details/log_msg_buffer-inl.h"/>
+        <File Name="oss/spdlog/details/log_msg_buffer.h"/>
+        <File Name="oss/spdlog/details/backtracer-inl.h"/>
+        <File Name="oss/spdlog/details/mpmc_blocking_q.h"/>
+      </VirtualDirectory>
+      <VirtualDirectory Name="cfg">
+        <File Name="oss/spdlog/cfg/argv.h"/>
+        <File Name="oss/spdlog/cfg/helpers-inl.h"/>
+        <File Name="oss/spdlog/cfg/helpers.h"/>
+        <File Name="oss/spdlog/cfg/env.h"/>
+      </VirtualDirectory>
+      <VirtualDirectory Name="fmt">
+        <File Name="oss/spdlog/fmt/compile.h"/>
+        <File Name="oss/spdlog/fmt/xchar.h"/>
+        <File Name="oss/spdlog/fmt/bin_to_hex.h"/>
+        <File Name="oss/spdlog/fmt/ostr.h"/>
+        <File Name="oss/spdlog/fmt/fmt.h"/>
+        <File Name="oss/spdlog/fmt/chrono.h"/>
+        <VirtualDirectory Name="bundled">
+          <File Name="oss/spdlog/fmt/bundled/compile.h"/>
+          <File Name="oss/spdlog/fmt/bundled/ranges.h"/>
+          <File Name="oss/spdlog/fmt/bundled/core.h"/>
+          <File Name="oss/spdlog/fmt/bundled/printf.h"/>
+          <File Name="oss/spdlog/fmt/bundled/xchar.h"/>
+          <File Name="oss/spdlog/fmt/bundled/os.h"/>
+          <File Name="oss/spdlog/fmt/bundled/ostream.h"/>
+          <File Name="oss/spdlog/fmt/bundled/color.h"/>
+          <File Name="oss/spdlog/fmt/bundled/format-inl.h"/>
+          <File Name="oss/spdlog/fmt/bundled/locale.h"/>
+          <File Name="oss/spdlog/fmt/bundled/format.h"/>
+          <File Name="oss/spdlog/fmt/bundled/args.h"/>
+          <File Name="oss/spdlog/fmt/bundled/chrono.h"/>
+        </VirtualDirectory>
+      </VirtualDirectory>
+    </VirtualDirectory>
+    <VirtualDirectory Name="taskflow">
+      <File Name="oss/taskflow/syclflow.hpp"/>
+      <File Name="oss/taskflow/cudaflow.hpp"/>
+      <File Name="oss/taskflow/taskflow.hpp"/>
+      <VirtualDirectory Name="cuda">
+        <File Name="oss/taskflow/cuda/cuda_flow.hpp"/>
+        <File Name="oss/taskflow/cuda/cuda_device.hpp"/>
+        <File Name="oss/taskflow/cuda/cuda_optimizer.hpp"/>
+        <File Name="oss/taskflow/cuda/cuda_stream.hpp"/>
+        <File Name="oss/taskflow/cuda/cuda_pool.hpp"/>
+        <File Name="oss/taskflow/cuda/cuda_error.hpp"/>
+        <File Name="oss/taskflow/cuda/cuda_graph.hpp"/>
+        <File Name="oss/taskflow/cuda/cuda_meta.hpp"/>
+        <File Name="oss/taskflow/cuda/cuda_capturer.hpp"/>
+        <File Name="oss/taskflow/cuda/cuda_execution_policy.hpp"/>
+        <File Name="oss/taskflow/cuda/cuda_task.hpp"/>
+        <File Name="oss/taskflow/cuda/cuda_memory.hpp"/>
+        <VirtualDirectory Name="cuda_algorithm">
+          <File Name="oss/taskflow/cuda/cuda_algorithm/cuda_for_each.hpp"/>
+          <File Name="oss/taskflow/cuda/cuda_algorithm/cuda_scan.hpp"/>
+          <File Name="oss/taskflow/cuda/cuda_algorithm/cuda_merge.hpp"/>
+          <File Name="oss/taskflow/cuda/cuda_algorithm/cuda_transpose.hpp"/>
+          <File Name="oss/taskflow/cuda/cuda_algorithm/cuda_matmul.hpp"/>
+          <File Name="oss/taskflow/cuda/cuda_algorithm/cuda_reduce.hpp"/>
+          <File Name="oss/taskflow/cuda/cuda_algorithm/cuda_transform.hpp"/>
+          <File Name="oss/taskflow/cuda/cuda_algorithm/cuda_sort.hpp"/>
+          <File Name="oss/taskflow/cuda/cuda_algorithm/cuda_find.hpp"/>
+        </VirtualDirectory>
+      </VirtualDirectory>
+      <VirtualDirectory Name="sycl">
+        <File Name="oss/taskflow/sycl/sycl_flow.hpp"/>
+        <File Name="oss/taskflow/sycl/sycl_task.hpp"/>
+        <File Name="oss/taskflow/sycl/sycl_meta.hpp"/>
+        <File Name="oss/taskflow/sycl/sycl_execution_policy.hpp"/>
+        <File Name="oss/taskflow/sycl/sycl_graph.hpp"/>
+        <VirtualDirectory Name="sycl_algorithm">
+          <File Name="oss/taskflow/sycl/sycl_algorithm/sycl_transform.hpp"/>
+          <File Name="oss/taskflow/sycl/sycl_algorithm/sycl_reduce.hpp"/>
+          <File Name="oss/taskflow/sycl/sycl_algorithm/sycl_for_each.hpp"/>
+        </VirtualDirectory>
+      </VirtualDirectory>
+      <VirtualDirectory Name="utility">
+        <File Name="oss/taskflow/utility/singleton.hpp"/>
+        <File Name="oss/taskflow/utility/os.hpp"/>
+        <File Name="oss/taskflow/utility/iterator.hpp"/>
+        <File Name="oss/taskflow/utility/uuid.hpp"/>
+        <File Name="oss/taskflow/utility/traits.hpp"/>
+        <File Name="oss/taskflow/utility/object_pool.hpp"/>
+        <File Name="oss/taskflow/utility/serializer.hpp"/>
+        <File Name="oss/taskflow/utility/small_vector.hpp"/>
+        <File Name="oss/taskflow/utility/math.hpp"/>
+        <File Name="oss/taskflow/utility/stream.hpp"/>
+      </VirtualDirectory>
+      <VirtualDirectory Name="dsl">
+        <File Name="oss/taskflow/dsl/meta_macro.hpp"/>
+        <File Name="oss/taskflow/dsl/type_list.hpp"/>
+        <File Name="oss/taskflow/dsl/task_analyzer.hpp"/>
+        <File Name="oss/taskflow/dsl/connection.hpp"/>
+        <File Name="oss/taskflow/dsl/dsl.hpp"/>
+        <File Name="oss/taskflow/dsl/task_dsl.hpp"/>
+        <File Name="oss/taskflow/dsl/task_trait.hpp"/>
+        <File Name="oss/taskflow/dsl/tuple_utils.hpp"/>
+      </VirtualDirectory>
+      <VirtualDirectory Name="core">
+        <File Name="oss/taskflow/core/graph.hpp"/>
+        <File Name="oss/taskflow/core/declarations.hpp"/>
+        <File Name="oss/taskflow/core/notifier.hpp"/>
+        <File Name="oss/taskflow/core/error.hpp"/>
+        <File Name="oss/taskflow/core/taskflow.hpp"/>
+        <File Name="oss/taskflow/core/topology.hpp"/>
+        <File Name="oss/taskflow/core/observer.hpp"/>
+        <File Name="oss/taskflow/core/environment.hpp"/>
+        <File Name="oss/taskflow/core/executor.hpp"/>
+        <File Name="oss/taskflow/core/worker.hpp"/>
+        <File Name="oss/taskflow/core/task.hpp"/>
+        <File Name="oss/taskflow/core/semaphore.hpp"/>
+        <File Name="oss/taskflow/core/tsq.hpp"/>
+        <File Name="oss/taskflow/core/flow_builder.hpp"/>
+        <VirtualDirectory Name="algorithm">
+          <File Name="oss/taskflow/core/algorithm/critical.hpp"/>
+          <File Name="oss/taskflow/core/algorithm/reduce.hpp"/>
+          <File Name="oss/taskflow/core/algorithm/sort.hpp"/>
+          <File Name="oss/taskflow/core/algorithm/for_each.hpp"/>
+        </VirtualDirectory>
+      </VirtualDirectory>
+    </VirtualDirectory>
+    <VirtualDirectory Name="nlohmann">
+      <File Name="oss/nlohmann/json.hpp"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="ixwebsocket">
+      <File Name="oss/ixwebsocket/IXHttpClient.h"/>
+      <File Name="oss/ixwebsocket/IXSelectInterrupt.h"/>
+      <File Name="oss/ixwebsocket/IXWebSocketInitResult.h"/>
+      <File Name="oss/ixwebsocket/IXWebSocketPerMessageDeflate.cpp"/>
+      <File Name="oss/ixwebsocket/IXWebSocketHandshakeKeyGen.h"/>
+      <File Name="oss/ixwebsocket/IXSetThreadName.cpp"/>
+      <File Name="oss/ixwebsocket/IXProgressCallback.h"/>
+      <File Name="oss/ixwebsocket/IXWebSocketCloseConstants.cpp"/>
+      <File Name="oss/ixwebsocket/IXSelectInterruptPipe.cpp"/>
+      <File Name="oss/ixwebsocket/IXUrlParser.h"/>
+      <File Name="oss/ixwebsocket/IXDNSLookup.h"/>
+      <File Name="oss/ixwebsocket/IXGzipCodec.h"/>
+      <File Name="oss/ixwebsocket/IXSocketServer.h"/>
+      <File Name="oss/ixwebsocket/IXSocketFactory.cpp"/>
+      <File Name="oss/ixwebsocket/IXCancellationRequest.h"/>
+      <File Name="oss/ixwebsocket/IXWebSocketSendInfo.h"/>
+      <File Name="oss/ixwebsocket/IXUdpSocket.cpp"/>
+      <File Name="oss/ixwebsocket/IXWebSocketMessageType.h"/>
+      <File Name="oss/ixwebsocket/IXWebSocket.cpp"/>
+      <File Name="oss/ixwebsocket/IXWebSocketPerMessageDeflateCodec.h"/>
+      <File Name="oss/ixwebsocket/IXCancellationRequest.cpp"/>
+      <File Name="oss/ixwebsocket/IXWebSocketCloseConstants.h"/>
+      <File Name="oss/ixwebsocket/IXSocket.cpp"/>
+      <File Name="oss/ixwebsocket/IXSocketTLSOptions.h"/>
+      <File Name="oss/ixwebsocket/IXUuid.h"/>
+      <File Name="oss/ixwebsocket/IXSelectInterruptFactory.h"/>
+      <File Name="oss/ixwebsocket/IXSocketOpenSSL.h"/>
+      <File Name="oss/ixwebsocket/IXWebSocketHttpHeaders.h"/>
+      <File Name="oss/ixwebsocket/IXWebSocketHttpHeaders.cpp"/>
+      <File Name="oss/ixwebsocket/IXUtf8Validator.h"/>
+      <File Name="oss/ixwebsocket/IXStrCaseCompare.h"/>
+      <File Name="oss/ixwebsocket/IXHttpClient.cpp"/>
+      <File Name="oss/ixwebsocket/IXUuid.cpp"/>
+      <File Name="oss/ixwebsocket/IXBench.h"/>
+      <File Name="oss/ixwebsocket/IXSocketTLSOptions.cpp"/>
+      <File Name="oss/ixwebsocket/IXWebSocketTransport.cpp"/>
+      <File Name="oss/ixwebsocket/IXWebSocketPerMessageDeflateCodec.cpp"/>
+      <File Name="oss/ixwebsocket/IXSocketOpenSSL.cpp"/>
+      <File Name="oss/ixwebsocket/IXSelectInterrupt.cpp"/>
+      <File Name="oss/ixwebsocket/IXGetFreePort.h"/>
+      <File Name="oss/ixwebsocket/IXSocketConnect.cpp"/>
+      <File Name="oss/ixwebsocket/IXConnectionState.h"/>
+      <File Name="oss/ixwebsocket/IXWebSocketMessage.h"/>
+      <File Name="oss/ixwebsocket/IXWebSocketTransport.h"/>
+      <File Name="oss/ixwebsocket/IXHttp.h"/>
+      <File Name="oss/ixwebsocket/IXUdpSocket.h"/>
+      <File Name="oss/ixwebsocket/IXWebSocketCloseInfo.h"/>
+      <File Name="oss/ixwebsocket/IXSocketAppleSSL.h"/>
+      <File Name="oss/ixwebsocket/IXHttp.cpp"/>
+      <File Name="oss/ixwebsocket/IXSocketMbedTLS.h"/>
+      <File Name="oss/ixwebsocket/IXGetFreePort.cpp"/>
+      <File Name="oss/ixwebsocket/IXSocket.h"/>
+      <File Name="oss/ixwebsocket/IXSocketServer.cpp"/>
+      <File Name="oss/ixwebsocket/IXWebSocketErrorInfo.h"/>
+      <File Name="oss/ixwebsocket/IXUserAgent.cpp"/>
+      <File Name="oss/ixwebsocket/IXWebSocketVersion.h"/>
+      <File Name="oss/ixwebsocket/IXWebSocketPerMessageDeflateOptions.h"/>
+      <File Name="oss/ixwebsocket/IXSocketAppleSSL.cpp"/>
+      <File Name="oss/ixwebsocket/IXUserAgent.h"/>
+      <File Name="oss/ixwebsocket/IXWebSocketOpenInfo.h"/>
+      <File Name="oss/ixwebsocket/IXBench.cpp"/>
+      <File Name="oss/ixwebsocket/IXUrlParser.cpp"/>
+      <File Name="oss/ixwebsocket/IXStrCaseCompare.cpp"/>
+      <File Name="oss/ixwebsocket/IXSocketConnect.h"/>
+      <File Name="oss/ixwebsocket/IXExponentialBackoff.h"/>
+      <File Name="oss/ixwebsocket/IXUniquePtr.h"/>
+      <File Name="oss/ixwebsocket/IXSelectInterruptPipe.h"/>
+      <File Name="oss/ixwebsocket/IXSocketFactory.h"/>
+      <File Name="oss/ixwebsocket/IXWebSocket.h"/>
+      <File Name="oss/ixwebsocket/IXDNSLookup.cpp"/>
+      <File Name="oss/ixwebsocket/IXNetSystem.h"/>
+      <File Name="oss/ixwebsocket/IXConnectionState.cpp"/>
+      <File Name="oss/ixwebsocket/IXExponentialBackoff.cpp"/>
+      <File Name="oss/ixwebsocket/IXGzipCodec.cpp"/>
+      <File Name="oss/ixwebsocket/IXSocketMbedTLS.cpp"/>
+      <File Name="oss/ixwebsocket/IXWebSocketHandshake.cpp"/>
+      <File Name="oss/ixwebsocket/IXWebSocketHandshake.h"/>
+      <File Name="oss/ixwebsocket/IXWebSocketPerMessageDeflateOptions.cpp"/>
+      <File Name="oss/ixwebsocket/IXSetThreadName.h"/>
+      <File Name="oss/ixwebsocket/IXWebSocketPerMessageDeflate.h"/>
+      <File Name="oss/ixwebsocket/IXSelectInterruptFactory.cpp"/>
+      <File Name="oss/ixwebsocket/IXNetSystem.cpp"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="csu">
+      <File Name="oss/csu/compact_si_units.h"/>
+      <File Name="oss/csu/compact_si_units.cpp"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="cpp-base64">
+      <VirtualDirectory Name="src">
+        <File Name="oss/cpp-base64/src/base64.cpp"/>
+      </VirtualDirectory>
+      <VirtualDirectory Name="include">
+        <File Name="oss/cpp-base64/include/base64.h"/>
+      </VirtualDirectory>
+    </VirtualDirectory>
+    <VirtualDirectory Name="cpp_util_3">
+      <File Name="oss/cpp_util_3/ensure.hpp"/>
+      <File Name="oss/cpp_util_3/cpp_util.hpp"/>
+      <File Name="oss/cpp_util_3/defs.hpp"/>
+      <File Name="oss/cpp_util_3/string_piece.hpp"/>
+      <File Name="oss/cpp_util_3/loops.hpp"/>
+      <File Name="oss/cpp_util_3/version.dox"/>
+      <File Name="oss/cpp_util_3/at_scope_exit.hpp"/>
+      <File Name="oss/cpp_util_3/rollback_on_exception.hpp"/>
+      <File Name="oss/cpp_util_3/prj.rb"/>
+      <File Name="oss/cpp_util_3/lexcast.hpp"/>
+      <File Name="oss/cpp_util_3/outliving.hpp"/>
+      <File Name="oss/cpp_util_3/detect_compiler.hpp"/>
+      <File Name="oss/cpp_util_3/terminate_if_throws.hpp"/>
+      <File Name="oss/cpp_util_3/namespaces.dox"/>
+      <VirtualDirectory Name="lexcasts">
+        <File Name="oss/cpp_util_3/lexcasts/util.hpp"/>
+        <File Name="oss/cpp_util_3/lexcasts/namespaces.dox"/>
+      </VirtualDirectory>
+      <VirtualDirectory Name="hex_dumps">
+        <File Name="oss/cpp_util_3/hex_dumps/string_dumper.hpp"/>
+        <File Name="oss/cpp_util_3/hex_dumps/namespaces.dox"/>
+      </VirtualDirectory>
+    </VirtualDirectory>
+    <VirtualDirectory Name="so_5">
+      <File Name="oss/so_5/rt.hpp"/>
+      <File Name="oss/so_5/types.hpp"/>
+      <File Name="oss/so_5/event_queue_hook.hpp"/>
+      <File Name="oss/so_5/fwd.hpp"/>
+      <File Name="oss/so_5/so_layer.hpp"/>
+      <File Name="oss/so_5/coop.hpp"/>
+      <File Name="oss/so_5/event_queue_hook.cpp"/>
+      <File Name="oss/so_5/compiler_features.hpp"/>
+      <File Name="oss/so_5/message_limit.cpp"/>
+      <File Name="oss/so_5/wrapped_env.cpp"/>
+      <File Name="oss/so_5/environment_infrastructure.hpp"/>
+      <File Name="oss/so_5/timers.cpp"/>
+      <File Name="oss/so_5/message_limit.hpp"/>
+      <File Name="oss/so_5/custom_mbox.hpp"/>
+      <File Name="oss/so_5/subscription_storage_fwd.hpp"/>
+      <File Name="oss/so_5/error_logger.hpp"/>
+      <File Name="oss/so_5/atomic_refcounted.hpp"/>
+      <File Name="oss/so_5/message_holder.hpp"/>
+      <File Name="oss/so_5/event_exception_logger.hpp"/>
+      <File Name="oss/so_5/message.hpp"/>
+      <File Name="oss/so_5/mbox_fwd.hpp"/>
+      <File Name="oss/so_5/agent.hpp"/>
+      <File Name="oss/so_5/environment.cpp"/>
+      <File Name="oss/so_5/all.hpp"/>
+      <File Name="oss/so_5/mbox.cpp"/>
+      <File Name="oss/so_5/thread_helper_functions.hpp"/>
+      <File Name="oss/so_5/event_exception_logger.cpp"/>
+      <File Name="oss/so_5/msg_tracing.cpp"/>
+      <File Name="oss/so_5/so_layer.cpp"/>
+      <File Name="oss/so_5/mchain.hpp"/>
+      <File Name="oss/so_5/version.hpp"/>
+      <File Name="oss/so_5/enveloped_msg.hpp"/>
+      <File Name="oss/so_5/agent_coop_notifications.hpp"/>
+      <File Name="oss/so_5/nonempty_name.hpp"/>
+      <File Name="oss/so_5/optional.hpp"/>
+      <File Name="oss/so_5/error_logger.cpp"/>
+      <File Name="oss/so_5/mhood.hpp"/>
+      <File Name="oss/so_5/mbox.hpp"/>
+      <File Name="oss/so_5/version.dox"/>
+      <File Name="oss/so_5/handler_makers.cpp"/>
+      <File Name="oss/so_5/current_thread_id.hpp"/>
+      <File Name="oss/so_5/mchain.cpp"/>
+      <File Name="oss/so_5/exception.cpp"/>
+      <File Name="oss/so_5/wrapped_env.hpp"/>
+      <File Name="oss/so_5/agent_tuning_options.hpp"/>
+      <File Name="oss/so_5/msg_tracing.hpp"/>
+      <File Name="oss/so_5/env_infrastructures.hpp"/>
+      <File Name="oss/so_5/send_functions.hpp"/>
+      <File Name="oss/so_5/coop_handle.hpp"/>
+      <File Name="oss/so_5/timers.hpp"/>
+      <File Name="oss/so_5/coop.cpp"/>
+      <File Name="oss/so_5/handler_makers.hpp"/>
+      <File Name="oss/so_5/declspec.hpp"/>
+      <File Name="oss/so_5/exception.hpp"/>
+      <File Name="oss/so_5/environment.hpp"/>
+      <File Name="oss/so_5/enveloped_msg.cpp"/>
+      <File Name="oss/so_5/disp_binder.hpp"/>
+      <File Name="oss/so_5/agent.cpp"/>
+      <File Name="oss/so_5/api.hpp"/>
+      <File Name="oss/so_5/message.cpp"/>
+      <File Name="oss/so_5/wait_indication.hpp"/>
+      <File Name="oss/so_5/event_queue.hpp"/>
+      <File Name="oss/so_5/spinlocks.hpp"/>
+      <File Name="oss/so_5/queue_locks_defaults_manager.hpp"/>
+      <File Name="oss/so_5/execution_demand.hpp"/>
+      <File Name="oss/so_5/coop_listener.hpp"/>
+      <File Name="oss/so_5/mchain_select_ifaces.hpp"/>
+      <File Name="oss/so_5/mchain_select.hpp"/>
+      <File Name="oss/so_5/stop_guard.hpp"/>
+      <File Name="oss/so_5/ret_code.hpp"/>
+      <File Name="oss/so_5/outliving.hpp"/>
+      <File Name="oss/so_5/priority.hpp"/>
+      <File Name="oss/so_5/agent_context.hpp"/>
+      <File Name="oss/so_5/agent_state_listener.hpp"/>
+      <File Name="oss/so_5/agent_ref_fwd.hpp"/>
+      <File Name="oss/so_5/mchain_helper_functions.hpp"/>
+      <File Name="oss/so_5/state.hpp"/>
+      <File Name="oss/so_5/queue_locks_defaults_manager.cpp"/>
+      <File Name="oss/so_5/message_handler_format_detector.hpp"/>
+      <VirtualDirectory Name="disp">
+        <VirtualDirectory Name="adv_thread_pool">
+          <File Name="oss/so_5/disp/adv_thread_pool/pub.cpp"/>
+          <File Name="oss/so_5/disp/adv_thread_pool/pub.hpp"/>
+          <VirtualDirectory Name="impl">
+            <File Name="oss/so_5/disp/adv_thread_pool/impl/disp.hpp"/>
+          </VirtualDirectory>
+        </VirtualDirectory>
+        <VirtualDirectory Name="reuse">
+          <File Name="oss/so_5/disp/reuse/make_actual_dispatcher.hpp"/>
+          <File Name="oss/so_5/disp/reuse/work_thread_activity_tracking.hpp"/>
+          <File Name="oss/so_5/disp/reuse/data_source_prefix_helpers.hpp"/>
+          <File Name="oss/so_5/disp/reuse/mpmc_ptr_queue.hpp"/>
+          <File Name="oss/so_5/disp/reuse/thread_pool_stats.hpp"/>
+          <VirtualDirectory Name="work_thread">
+            <File Name="oss/so_5/disp/reuse/work_thread/work_thread.hpp"/>
+          </VirtualDirectory>
+        </VirtualDirectory>
+        <VirtualDirectory Name="prio_one_thread">
+          <VirtualDirectory Name="strictly_ordered">
+            <File Name="oss/so_5/disp/prio_one_thread/strictly_ordered/pub.cpp"/>
+            <File Name="oss/so_5/disp/prio_one_thread/strictly_ordered/pub.hpp"/>
+            <VirtualDirectory Name="impl">
+              <File Name="oss/so_5/disp/prio_one_thread/strictly_ordered/impl/demand_queue.hpp"/>
+            </VirtualDirectory>
+          </VirtualDirectory>
+          <VirtualDirectory Name="reuse">
+            <File Name="oss/so_5/disp/prio_one_thread/reuse/work_thread.hpp"/>
+          </VirtualDirectory>
+          <VirtualDirectory Name="quoted_round_robin">
+            <File Name="oss/so_5/disp/prio_one_thread/quoted_round_robin/quotes.hpp"/>
+            <File Name="oss/so_5/disp/prio_one_thread/quoted_round_robin/pub.cpp"/>
+            <File Name="oss/so_5/disp/prio_one_thread/quoted_round_robin/pub.hpp"/>
+            <VirtualDirectory Name="impl">
+              <File Name="oss/so_5/disp/prio_one_thread/quoted_round_robin/impl/demand_queue.hpp"/>
+            </VirtualDirectory>
+          </VirtualDirectory>
+        </VirtualDirectory>
+        <VirtualDirectory Name="one_thread">
+          <File Name="oss/so_5/disp/one_thread/params.hpp"/>
+          <File Name="oss/so_5/disp/one_thread/pub.cpp"/>
+          <File Name="oss/so_5/disp/one_thread/pub.hpp"/>
+        </VirtualDirectory>
+        <VirtualDirectory Name="active_obj">
+          <File Name="oss/so_5/disp/active_obj/pub.cpp"/>
+          <File Name="oss/so_5/disp/active_obj/pub.hpp"/>
+        </VirtualDirectory>
+        <VirtualDirectory Name="mpsc_queue_traits">
+          <File Name="oss/so_5/disp/mpsc_queue_traits/pub.cpp"/>
+          <File Name="oss/so_5/disp/mpsc_queue_traits/pub.hpp"/>
+        </VirtualDirectory>
+        <VirtualDirectory Name="prio_dedicated_threads">
+          <VirtualDirectory Name="one_per_prio">
+            <File Name="oss/so_5/disp/prio_dedicated_threads/one_per_prio/pub.cpp"/>
+            <File Name="oss/so_5/disp/prio_dedicated_threads/one_per_prio/pub.hpp"/>
+          </VirtualDirectory>
+        </VirtualDirectory>
+        <VirtualDirectory Name="mpmc_queue_traits">
+          <File Name="oss/so_5/disp/mpmc_queue_traits/pub.cpp"/>
+          <File Name="oss/so_5/disp/mpmc_queue_traits/pub.hpp"/>
+        </VirtualDirectory>
+        <VirtualDirectory Name="active_group">
+          <File Name="oss/so_5/disp/active_group/pub.cpp"/>
+          <File Name="oss/so_5/disp/active_group/pub.hpp"/>
+        </VirtualDirectory>
+        <VirtualDirectory Name="thread_pool">
+          <File Name="oss/so_5/disp/thread_pool/pub.cpp"/>
+          <File Name="oss/so_5/disp/thread_pool/pub.hpp"/>
+          <VirtualDirectory Name="impl">
+            <File Name="oss/so_5/disp/thread_pool/impl/disp.hpp"/>
+            <File Name="oss/so_5/disp/thread_pool/impl/common_implementation.hpp"/>
+          </VirtualDirectory>
+        </VirtualDirectory>
+      </VirtualDirectory>
+      <VirtualDirectory Name="impl">
+        <File Name="oss/so_5/impl/st_env_infrastructure_reuse.hpp"/>
+        <File Name="oss/so_5/impl/process_unhandled_exception.hpp"/>
+        <File Name="oss/so_5/impl/enveloped_msg_details.hpp"/>
+        <File Name="oss/so_5/impl/named_local_mbox.cpp"/>
+        <File Name="oss/so_5/impl/message_limit_action_msg_tracer.hpp"/>
+        <File Name="oss/so_5/impl/simple_mtsafe_st_env_infrastructure.cpp"/>
+        <File Name="oss/so_5/impl/simple_not_mtsafe_st_env_infrastructure.cpp"/>
+        <File Name="oss/so_5/impl/std_msg_tracer_holder.hpp"/>
+        <File Name="oss/so_5/impl/mbox_core.hpp"/>
+        <File Name="oss/so_5/impl/subscr_storage_hash_table_based.cpp"/>
+        <File Name="oss/so_5/impl/coop_repository_basis.cpp"/>
+        <File Name="oss/so_5/impl/local_mbox.hpp"/>
+        <File Name="oss/so_5/impl/layer_core.hpp"/>
+        <File Name="oss/so_5/impl/named_local_mbox.hpp"/>
+        <File Name="oss/so_5/impl/delivery_filter_storage.hpp"/>
+        <File Name="oss/so_5/impl/make_mchain.hpp"/>
+        <File Name="oss/so_5/impl/mchain_details.hpp"/>
+        <File Name="oss/so_5/impl/subscr_storage_vector_based.cpp"/>
+        <File Name="oss/so_5/impl/layer_core.cpp"/>
+        <File Name="oss/so_5/impl/agent_ptr_compare.hpp"/>
+        <File Name="oss/so_5/impl/internal_env_iface.hpp"/>
+        <File Name="oss/so_5/impl/mbox_core.cpp"/>
+        <File Name="oss/so_5/impl/internal_agent_iface.hpp"/>
+        <File Name="oss/so_5/impl/mpsc_mbox.hpp"/>
+        <File Name="oss/so_5/impl/mt_env_infrastructure.hpp"/>
+        <File Name="oss/so_5/impl/subscription_storage_iface.hpp"/>
+        <File Name="oss/so_5/impl/subscr_storage_map_based.cpp"/>
+        <File Name="oss/so_5/impl/msg_tracing_helpers.cpp"/>
+        <File Name="oss/so_5/impl/mt_env_infrastructure.cpp"/>
+        <File Name="oss/so_5/impl/process_unhandled_exception.cpp"/>
+        <File Name="oss/so_5/impl/message_limit_internals.hpp"/>
+        <File Name="oss/so_5/impl/run_stage.hpp"/>
+        <File Name="oss/so_5/impl/msg_tracing_helpers.hpp"/>
+        <File Name="oss/so_5/impl/subscr_storage_adaptive.cpp"/>
+        <File Name="oss/so_5/impl/coop_private_iface.hpp"/>
+        <File Name="oss/so_5/impl/stop_guard_repo.hpp"/>
+        <File Name="oss/so_5/impl/coop_repository_basis.hpp"/>
+        <File Name="oss/so_5/impl/subscription_storage_iface.cpp"/>
+        <File Name="oss/so_5/impl/mbox_iface_for_timers.hpp"/>
+        <File Name="oss/so_5/impl/thread_join_stuff.hpp"/>
+      </VirtualDirectory>
+      <VirtualDirectory Name="experimental">
+        <File Name="oss/so_5/experimental/testing.hpp"/>
+        <VirtualDirectory Name="testing">
+          <VirtualDirectory Name="v1">
+            <File Name="oss/so_5/experimental/testing/v1/all.hpp"/>
+            <File Name="oss/so_5/experimental/testing/v1/all.cpp"/>
+          </VirtualDirectory>
+        </VirtualDirectory>
+      </VirtualDirectory>
+      <VirtualDirectory Name="3rd_party">
+        <VirtualDirectory Name="timertt">
+          <File Name="oss/so_5/3rd_party/timertt/all.hpp"/>
+        </VirtualDirectory>
+      </VirtualDirectory>
+      <VirtualDirectory Name="details">
+        <File Name="oss/so_5/details/invoke_noexcept_code.hpp"/>
+        <File Name="oss/so_5/details/sync_helpers.hpp"/>
+        <File Name="oss/so_5/details/ios_helpers.hpp"/>
+        <File Name="oss/so_5/details/always_false.hpp"/>
+        <File Name="oss/so_5/details/abort_on_fatal_error.hpp"/>
+        <File Name="oss/so_5/details/suppress_exceptions.hpp"/>
+        <File Name="oss/so_5/details/safe_cv_wait_for.hpp"/>
+        <File Name="oss/so_5/details/at_scope_exit.hpp"/>
+        <File Name="oss/so_5/details/rollback_on_exception.hpp"/>
+        <File Name="oss/so_5/details/remaining_time_counter.hpp"/>
+        <File Name="oss/so_5/details/lambda_traits.hpp"/>
+      </VirtualDirectory>
+      <VirtualDirectory Name="stats">
+        <File Name="oss/so_5/stats/messages.hpp"/>
+        <File Name="oss/so_5/stats/std_names.hpp"/>
+        <File Name="oss/so_5/stats/controller.hpp"/>
+        <File Name="oss/so_5/stats/work_thread_activity.hpp"/>
+        <File Name="oss/so_5/stats/repository.cpp"/>
+        <File Name="oss/so_5/stats/std_names.cpp"/>
+        <File Name="oss/so_5/stats/prefix.hpp"/>
+        <File Name="oss/so_5/stats/repository.hpp"/>
+        <VirtualDirectory Name="impl">
+          <File Name="oss/so_5/stats/impl/st_env_stuff.hpp"/>
+          <File Name="oss/so_5/stats/impl/activity_tracking.hpp"/>
+          <File Name="oss/so_5/stats/impl/std_controller.hpp"/>
+          <File Name="oss/so_5/stats/impl/ds_timer_thread_stats.cpp"/>
+          <File Name="oss/so_5/stats/impl/std_controller.cpp"/>
+          <File Name="oss/so_5/stats/impl/ds_timer_thread_stats.hpp"/>
+          <File Name="oss/so_5/stats/impl/ds_mbox_core_stats.hpp"/>
+          <File Name="oss/so_5/stats/impl/ds_agent_core_stats.hpp"/>
+          <File Name="oss/so_5/stats/impl/ds_agent_core_stats.cpp"/>
+          <File Name="oss/so_5/stats/impl/ds_mbox_core_stats.cpp"/>
+        </VirtualDirectory>
+      </VirtualDirectory>
+    </VirtualDirectory>
+    <VirtualDirectory Name="so_5_extra">
+      <File Name="oss/so_5_extra/CMakeLists.txt"/>
+      <File Name="oss/so_5_extra/error_ranges.hpp"/>
+      <VirtualDirectory Name="disp">
+        <VirtualDirectory Name="asio_thread_pool">
+          <File Name="oss/so_5_extra/disp/asio_thread_pool/pub.hpp"/>
+        </VirtualDirectory>
+        <VirtualDirectory Name="asio_one_thread">
+          <File Name="oss/so_5_extra/disp/asio_one_thread/pub.hpp"/>
+        </VirtualDirectory>
+      </VirtualDirectory>
+      <VirtualDirectory Name="mchains">
+        <File Name="oss/so_5_extra/mchains/fixed_size.hpp"/>
+      </VirtualDirectory>
+      <VirtualDirectory Name="enveloped_msg">
+        <File Name="oss/so_5_extra/enveloped_msg/errors.hpp"/>
+        <File Name="oss/so_5_extra/enveloped_msg/time_limited_delivery.hpp"/>
+        <File Name="oss/so_5_extra/enveloped_msg/send_functions.hpp"/>
+        <File Name="oss/so_5_extra/enveloped_msg/just_envelope.hpp"/>
+      </VirtualDirectory>
+      <VirtualDirectory Name="mboxes">
+        <File Name="oss/so_5_extra/mboxes/retained_msg.hpp"/>
+        <File Name="oss/so_5_extra/mboxes/broadcast.hpp"/>
+        <File Name="oss/so_5_extra/mboxes/round_robin.hpp"/>
+        <File Name="oss/so_5_extra/mboxes/collecting_mbox.hpp"/>
+        <File Name="oss/so_5_extra/mboxes/proxy.hpp"/>
+      </VirtualDirectory>
+      <VirtualDirectory Name="async_op">
+        <File Name="oss/so_5_extra/async_op/errors.hpp"/>
+        <File Name="oss/so_5_extra/async_op/time_limited.hpp"/>
+        <File Name="oss/so_5_extra/async_op/details.hpp"/>
+        <File Name="oss/so_5_extra/async_op/time_unlimited.hpp"/>
+      </VirtualDirectory>
+      <VirtualDirectory Name="shutdowner">
+        <File Name="oss/so_5_extra/shutdowner/shutdowner.hpp"/>
+      </VirtualDirectory>
+      <VirtualDirectory Name="revocable_timer">
+        <File Name="oss/so_5_extra/revocable_timer/pub.hpp"/>
+      </VirtualDirectory>
+      <VirtualDirectory Name="env_infrastructures">
+        <VirtualDirectory Name="asio">
+          <File Name="oss/so_5_extra/env_infrastructures/asio/simple_mtsafe.hpp"/>
+          <File Name="oss/so_5_extra/env_infrastructures/asio/simple_not_mtsafe.hpp"/>
+          <VirtualDirectory Name="impl">
+            <File Name="oss/so_5_extra/env_infrastructures/asio/impl/common.hpp"/>
+          </VirtualDirectory>
+        </VirtualDirectory>
+      </VirtualDirectory>
+      <VirtualDirectory Name="sync">
+        <File Name="oss/so_5_extra/sync/pub.hpp"/>
+      </VirtualDirectory>
+      <VirtualDirectory Name="cmake">
+        <File Name="oss/so_5_extra/cmake/target.cmake"/>
+        <File Name="oss/so_5_extra/cmake/so5extra-config.cmake.in"/>
+      </VirtualDirectory>
+      <VirtualDirectory Name="revocable_msg">
+        <File Name="oss/so_5_extra/revocable_msg/pub.hpp"/>
+      </VirtualDirectory>
+    </VirtualDirectory>
+    <VirtualDirectory Name="clips">
+      <VirtualDirectory Name="lib">
+        <File Name="oss/clips/lib/libclips.a"/>
+      </VirtualDirectory>
+      <VirtualDirectory Name="include">
+        <File Name="oss/clips/include/emathfun.h"/>
+        <File Name="oss/clips/include/factlhs.h"/>
+        <File Name="oss/clips/include/dffctbin.h"/>
+        <File Name="oss/clips/include/globlpsr.h"/>
+        <File Name="oss/clips/include/watch.h"/>
+        <File Name="oss/clips/include/crstrtgy.h"/>
+        <File Name="oss/clips/include/symbol.h"/>
+        <File Name="oss/clips/include/constant.h"/>
+        <File Name="oss/clips/include/tmpltbsc.h"/>
+        <File Name="oss/clips/include/dffnxpsr.h"/>
+        <File Name="oss/clips/include/insquery.h"/>
+        <File Name="oss/clips/include/bload.h"/>
+        <File Name="oss/clips/include/utility.h"/>
+        <File Name="oss/clips/include/facthsh.h"/>
+        <File Name="oss/clips/include/router.h"/>
+        <File Name="oss/clips/include/modulpsr.h"/>
+        <File Name="oss/clips/include/rulebsc.h"/>
+        <File Name="oss/clips/include/scanner.h"/>
+        <File Name="oss/clips/include/dffctpsr.h"/>
+        <File Name="oss/clips/include/factfile.h"/>
+        <File Name="oss/clips/include/tmpltcmp.h"/>
+        <File Name="oss/clips/include/factqury.h"/>
+        <File Name="oss/clips/include/classinf.h"/>
+        <File Name="oss/clips/include/tmpltpsr.h"/>
+        <File Name="oss/clips/include/constrct.h"/>
+        <File Name="oss/clips/include/factbin.h"/>
+        <File Name="oss/clips/include/tmpltutl.h"/>
+        <File Name="oss/clips/include/globlbsc.h"/>
+        <File Name="oss/clips/include/sortfun.h"/>
+        <File Name="oss/clips/include/prccode.h"/>
+        <File Name="oss/clips/include/exprnops.h"/>
+        <File Name="oss/clips/include/factbld.h"/>
+        <File Name="oss/clips/include/cstrnutl.h"/>
+        <File Name="oss/clips/include/miscfun.h"/>
+        <File Name="oss/clips/include/objrtmch.h"/>
+        <File Name="oss/clips/include/sysdep.h"/>
+        <File Name="oss/clips/include/dffctbsc.h"/>
+        <File Name="oss/clips/include/inherpsr.h"/>
+        <File Name="oss/clips/include/dffctdef.h"/>
+        <File Name="oss/clips/include/cstrncmp.h"/>
+        <File Name="oss/clips/include/multifld.h"/>
+        <File Name="oss/clips/include/expressn.h"/>
+        <File Name="oss/clips/include/fileutil.h"/>
+        <File Name="oss/clips/include/globlcom.h"/>
+        <File Name="oss/clips/include/incrrset.h"/>
+        <File Name="oss/clips/include/modulutl.h"/>
+        <File Name="oss/clips/include/prcdrfun.h"/>
+        <File Name="oss/clips/include/parsefun.h"/>
+        <File Name="oss/clips/include/cstrnchk.h"/>
+        <File Name="oss/clips/include/rulecom.h"/>
+        <File Name="oss/clips/include/dffnxbin.h"/>
+        <File Name="oss/clips/include/textpro.h"/>
+        <File Name="oss/clips/include/envrnbld.h"/>
+        <File Name="oss/clips/include/prdctfun.h"/>
+        <File Name="oss/clips/include/genrcfun.h"/>
+        <File Name="oss/clips/include/classpsr.h"/>
+        <File Name="oss/clips/include/factcmp.h"/>
+        <File Name="oss/clips/include/factmch.h"/>
+        <File Name="oss/clips/include/dfinscmp.h"/>
+        <File Name="oss/clips/include/commline.h"/>
+        <File Name="oss/clips/include/object.h"/>
+        <File Name="oss/clips/include/rulebin.h"/>
+        <File Name="oss/clips/include/modulcmp.h"/>
+        <File Name="oss/clips/include/lgcldpnd.h"/>
+        <File Name="oss/clips/include/developr.h"/>
+        <File Name="oss/clips/include/agenda.h"/>
+        <File Name="oss/clips/include/factcom.h"/>
+        <File Name="oss/clips/include/insfun.h"/>
+        <File Name="oss/clips/include/network.h"/>
+        <File Name="oss/clips/include/insqypsr.h"/>
+        <File Name="oss/clips/include/moduldef.h"/>
+        <File Name="oss/clips/include/entities.h"/>
+        <File Name="oss/clips/include/dfinsbin.h"/>
+        <File Name="oss/clips/include/reteutil.h"/>
+        <File Name="oss/clips/include/setup.h"/>
+        <File Name="oss/clips/include/factfun.h"/>
+        <File Name="oss/clips/include/bsave.h"/>
+        <File Name="oss/clips/include/symblcmp.h"/>
+        <File Name="oss/clips/include/cstrccom.h"/>
+        <File Name="oss/clips/include/prntutil.h"/>
+        <File Name="oss/clips/include/factprt.h"/>
+        <File Name="oss/clips/include/pattern.h"/>
+        <File Name="oss/clips/include/rulelhs.h"/>
+        <File Name="oss/clips/include/analysis.h"/>
+        <File Name="oss/clips/include/clsltpsr.h"/>
+        <File Name="oss/clips/include/retract.h"/>
+        <File Name="oss/clips/include/insfile.h"/>
+        <File Name="oss/clips/include/factqpsr.h"/>
+        <File Name="oss/clips/include/globlbin.h"/>
+        <File Name="oss/clips/include/factgen.h"/>
+        <File Name="oss/clips/include/drive.h"/>
+        <File Name="oss/clips/include/cstrnbin.h"/>
+        <File Name="oss/clips/include/cstrnops.h"/>
+        <File Name="oss/clips/include/match.h"/>
+        <File Name="oss/clips/include/tmpltfun.h"/>
+        <File Name="oss/clips/include/reorder.h"/>
+        <File Name="oss/clips/include/prcdrpsr.h"/>
+        <File Name="oss/clips/include/dffnxcmp.h"/>
+        <File Name="oss/clips/include/genrcpsr.h"/>
+        <File Name="oss/clips/include/bmathfun.h"/>
+        <File Name="oss/clips/include/msgpass.h"/>
+        <File Name="oss/clips/include/objrtgen.h"/>
+        <File Name="oss/clips/include/iofun.h"/>
+        <File Name="oss/clips/include/classini.h"/>
+        <File Name="oss/clips/include/clips.h"/>
+        <File Name="oss/clips/include/pprint.h"/>
+        <File Name="oss/clips/include/insmngr.h"/>
+        <File Name="oss/clips/include/strngfun.h"/>
+        <File Name="oss/clips/include/genrccmp.h"/>
+        <File Name="oss/clips/include/userdata.h"/>
+        <File Name="oss/clips/include/extnfunc.h"/>
+        <File Name="oss/clips/include/usrsetup.h"/>
+        <File Name="oss/clips/include/classfun.h"/>
+        <File Name="oss/clips/include/envrnmnt.h"/>
+        <File Name="oss/clips/include/factrete.h"/>
+        <File Name="oss/clips/include/tmpltbin.h"/>
+        <File Name="oss/clips/include/genrcexe.h"/>
+        <File Name="oss/clips/include/msgfun.h"/>
+        <File Name="oss/clips/include/objrtfnx.h"/>
+        <File Name="oss/clips/include/ruledef.h"/>
+        <File Name="oss/clips/include/rulepsr.h"/>
+        <File Name="oss/clips/include/filecom.h"/>
+        <File Name="oss/clips/include/symblbin.h"/>
+        <File Name="oss/clips/include/default.h"/>
+        <File Name="oss/clips/include/genrccom.h"/>
+        <File Name="oss/clips/include/inscom.h"/>
+        <File Name="oss/clips/include/proflfun.h"/>
+        <File Name="oss/clips/include/insmoddp.h"/>
+        <File Name="oss/clips/include/objrtbld.h"/>
+        <File Name="oss/clips/include/defins.h"/>
+        <File Name="oss/clips/include/factmngr.h"/>
+        <File Name="oss/clips/include/evaluatn.h"/>
+        <File Name="oss/clips/include/cstrnpsr.h"/>
+        <File Name="oss/clips/include/memalloc.h"/>
+        <File Name="oss/clips/include/multifun.h"/>
+        <File Name="oss/clips/include/tmpltlhs.h"/>
+        <File Name="oss/clips/include/dffnxfun.h"/>
+        <File Name="oss/clips/include/globlcmp.h"/>
+        <File Name="oss/clips/include/constrnt.h"/>
+        <File Name="oss/clips/include/objrtcmp.h"/>
+        <File Name="oss/clips/include/msgcom.h"/>
+        <File Name="oss/clips/include/tmpltdef.h"/>
+        <File Name="oss/clips/include/factrhs.h"/>
+        <File Name="oss/clips/include/classexm.h"/>
+        <File Name="oss/clips/include/cstrcpsr.h"/>
+        <File Name="oss/clips/include/argacces.h"/>
+        <File Name="oss/clips/include/immthpsr.h"/>
+        <File Name="oss/clips/include/modulbsc.h"/>
+        <File Name="oss/clips/include/objcmp.h"/>
+        <File Name="oss/clips/include/rulebld.h"/>
+        <File Name="oss/clips/include/ruledlt.h"/>
+        <File Name="oss/clips/include/modulbin.h"/>
+        <File Name="oss/clips/include/objbin.h"/>
+        <File Name="oss/clips/include/strngrtr.h"/>
+        <File Name="oss/clips/include/classcom.h"/>
+        <File Name="oss/clips/include/engine.h"/>
+        <File Name="oss/clips/include/exprnbin.h"/>
+        <File Name="oss/clips/include/insmult.h"/>
+        <File Name="oss/clips/include/dffctcmp.h"/>
+        <File Name="oss/clips/include/genrcbin.h"/>
+        <File Name="oss/clips/include/cstrccmp.h"/>
+        <File Name="oss/clips/include/globldef.h"/>
+        <File Name="oss/clips/include/cstrcbin.h"/>
+        <File Name="oss/clips/include/filertr.h"/>
+        <File Name="oss/clips/include/msgpsr.h"/>
+        <File Name="oss/clips/include/generate.h"/>
+        <File Name="oss/clips/include/exprnpsr.h"/>
+        <File Name="oss/clips/include/conscomp.h"/>
+        <File Name="oss/clips/include/objrtbin.h"/>
+        <File Name="oss/clips/include/dffnxexe.h"/>
+        <File Name="oss/clips/include/tmpltrhs.h"/>
+        <File Name="oss/clips/include/rulecmp.h"/>
+        <File Name="oss/clips/include/rulecstr.h"/>
+        <File Name="oss/clips/include/inspsr.h"/>
+      </VirtualDirectory>
+    </VirtualDirectory>
+    <VirtualDirectory Name="uSockets">
+      <File Name="oss/uSockets/loop.c"/>
+      <File Name="oss/uSockets/socket.c"/>
+      <File Name="oss/uSockets/bsd.c"/>
+      <File Name="oss/uSockets/context.c"/>
+      <File Name="oss/uSockets/LICENSE"/>
+      <File Name="oss/uSockets/libusockets.h"/>
+      <VirtualDirectory Name="crypto">
+        <File Name="oss/uSockets/crypto/sni_tree.cpp"/>
+        <File Name="oss/uSockets/crypto/wolfssl.c"/>
+        <File Name="oss/uSockets/crypto/openssl.c"/>
+      </VirtualDirectory>
+      <VirtualDirectory Name="eventing">
+        <File Name="oss/uSockets/eventing/asio.cpp"/>
+        <File Name="oss/uSockets/eventing/gcd.c"/>
+        <File Name="oss/uSockets/eventing/epoll_kqueue.c"/>
+        <File Name="oss/uSockets/eventing/libuv.c"/>
+      </VirtualDirectory>
+      <VirtualDirectory Name="internal">
+        <File Name="oss/uSockets/internal/internal.h"/>
+        <File Name="oss/uSockets/internal/loop_data.h"/>
+        <VirtualDirectory Name="eventing">
+          <File Name="oss/uSockets/internal/eventing/asio.h"/>
+          <File Name="oss/uSockets/internal/eventing/epoll_kqueue.h"/>
+          <File Name="oss/uSockets/internal/eventing/gcd.h"/>
+          <File Name="oss/uSockets/internal/eventing/libuv.h"/>
+        </VirtualDirectory>
+        <VirtualDirectory Name="networking">
+          <File Name="oss/uSockets/internal/networking/bsd.h"/>
+        </VirtualDirectory>
+      </VirtualDirectory>
+    </VirtualDirectory>
+    <VirtualDirectory Name="uWebSockets">
+      <File Name="oss/uWebSockets/HttpContextData.h"/>
+      <File Name="oss/uWebSockets/WebSocketHandshake.h"/>
+      <File Name="oss/uWebSockets/Multipart.h"/>
+      <File Name="oss/uWebSockets/PerMessageDeflate.h"/>
+      <File Name="oss/uWebSockets/MoveOnlyFunction.h"/>
+      <File Name="oss/uWebSockets/Utilities.h"/>
+      <File Name="oss/uWebSockets/WebSocketContextData.h"/>
+      <File Name="oss/uWebSockets/TopicTree.h"/>
+      <File Name="oss/uWebSockets/MessageParser.h"/>
+      <File Name="oss/uWebSockets/AsyncSocket.h"/>
+      <File Name="oss/uWebSockets/Loop.h"/>
+      <File Name="oss/uWebSockets/WebSocket.h"/>
+      <File Name="oss/uWebSockets/LoopData.h"/>
+      <File Name="oss/uWebSockets/AsyncSocketData.h"/>
+      <File Name="oss/uWebSockets/HttpResponseData.h"/>
+      <File Name="oss/uWebSockets/App.h"/>
+      <File Name="oss/uWebSockets/QueryParser.h"/>
+      <File Name="oss/uWebSockets/ProxyParser.h"/>
+      <File Name="oss/uWebSockets/WebSocketContext.h"/>
+      <File Name="oss/uWebSockets/BloomFilter.h"/>
+      <File Name="oss/uWebSockets/HttpContext.h"/>
+      <File Name="oss/uWebSockets/WebSocketProtocol.h"/>
+      <File Name="oss/uWebSockets/HttpRouter.h"/>
+      <File Name="oss/uWebSockets/HttpResponse.h"/>
+      <File Name="oss/uWebSockets/WebSocketExtensions.h"/>
+      <File Name="oss/uWebSockets/WebSocketData.h"/>
+      <File Name="oss/uWebSockets/HttpParser.h"/>
+    </VirtualDirectory>
+  </VirtualDirectory>
+  <VirtualDirectory Name="src">
+    <File Name="src/ncap_mqtt_backend_hooks.cpp"/>
+    <File Name="src/ncap_ws_data_source_subscriber.cpp"/>
+    <File Name="src/ncap_config_registry.cpp"/>
+    <VirtualDirectory Name="sf-sys">
+      <VirtualDirectory Name="utils">
+        <File Name="src/sf-sys/utils/time_utils.cpp"/>
+      </VirtualDirectory>
+    </VirtualDirectory>
+    <File Name="src/ncap_mqtt_backend.cpp"/>
+    <File Name="src/ncap_supervisor.cpp"/>
+    <File Name="src/ncap_device_auth_token.cpp"/>
+    <File Name="src/main.cpp"/>
+  </VirtualDirectory>
+  <Description/>
+  <Dependencies/>
+  <Settings Type="Executable">
+    <GlobalSettings>
+      <Compiler Options="-fPIC" C_Options="-fopenmp" Assembler="">
+        <IncludePath Value="."/>
+        <IncludePath Value="./include"/>
+        <IncludePath Value="./oss"/>
+        <IncludePath Value="./oss/uSockets"/>
+        <IncludePath Value="./oss/uWebSockets"/>
+        <IncludePath Value="./oss/cpr/include"/>
+        <IncludePath Value="./oss/mqtt_cpp/include"/>
+        <IncludePath Value="./oss/redis++"/>
+        <IncludePath Value="./oss/redis++/tls"/>
+        <IncludePath Value="./oss/redis++/cxx17"/>
+        <IncludePath Value="./oss/redis++/future/std"/>
+        <IncludePath Value="./oss/clips/include"/>
+        <IncludePath Value="./oss/muParser/include"/>
+        <IncludePath Value="./oss/msgpack/include"/>
+        <Preprocessor Value="WITH_LIBUV=1"/>
+        <Preprocessor Value="WITH_OPENSSL=1"/>
+        <Preprocessor Value="LIBUS_USE_OPENSSL"/>
+        <Preprocessor Value="FMT_HEADER_ONLY"/>
+        <Preprocessor Value="SPDLOG_FMT_EXTERNAL"/>
+        <Preprocessor Value="USE_OPENSSL=1"/>
+        <Preprocessor Value="IXWEBSOCKET_USE_OPEN_SSL=1"/>
+        <Preprocessor Value="MQTT_USE_TLS"/>
+        <Preprocessor Value="MQTT_USE_WS"/>
+        <Preprocessor Value="MQTT_USE_LOG"/>
+        <Preprocessor Value="BOOST_LOG_DYN_LINK"/>
+        <Preprocessor Value="VC_SI_UNITS_ASSERT"/>
+        <Preprocessor Value="REDIS_PLUS_PLUS_USE_TLS=1"/>
+        <Preprocessor Value="LINUX=1"/>
+      </Compiler>
+      <Linker Options="">
+        <LibraryPath Value="."/>
+        <LibraryPath Value="./oss/clips/lib"/>
+        <LibraryPath Value="./oss/muParser/lib"/>
+        <Library Value="libclips.a"/>
+        <Library Value="libuv.a"/>
+        <Library Value="boost_log"/>
+        <Library Value="boost_filesystem"/>
+        <Library Value="boost_thread"/>
+        <Library Value="curl"/>
+        <Library Value="resolv"/>
+        <Library Value="pthread"/>
+        <Library Value="z"/>
+        <Library Value="m"/>
+        <Library Value="rt"/>
+        <Library Value="ssl"/>
+        <Library Value="crypto"/>
+        <Library Value="stdc++"/>
+        <Library Value="dl"/>
+      </Linker>
+      <ResourceCompiler Options=""/>
+    </GlobalSettings>
+    <Configuration Name="Debug" CompilerType="CLANG" DebuggerType="GNU gdb debugger" Type="Executable" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <Compiler Options="-g;-O0;-std=c++17;-Wall" C_Options="-g;-O0;-std=c99;-Wall" Assembler="" Required="yes" PreCompiledHeader="" PCHInCommandLine="no" PCHFlags="" PCHFlagsPolicy="0">
+        <IncludePath Value="."/>
+      </Compiler>
+      <Linker Options="" Required="yes"/>
+      <ResourceCompiler Options="" Required="no"/>
+      <General OutputFile="" IntermediateDirectory="" Command="$(WorkspacePath)/cmake-build-$(WorkspaceConfiguration)/output/$(ProjectName)" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="$(WorkspacePath)/cmake-build-$(WorkspaceConfiguration)/output" PauseExecWhenProcTerminates="yes" IsGUIProgram="no" IsEnabled="yes"/>
+      <BuildSystem Name="CMake"/>
+      <Environment EnvVarSetName="&lt;Use Defaults&gt;" DbgSetName="&lt;Use Defaults&gt;">
+        <![CDATA[export CC=/usr/bin/clang
+export CXX=/usr/bin/clang++]]>
+      </Environment>
+      <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="" IsExtended="no">
+        <DebuggerSearchPaths/>
+        <PostConnectCommands/>
+        <StartupCommands/>
+      </Debugger>
+      <PreBuild/>
+      <PostBuild>
+        <Command Enabled="yes">strip ${CL_OUTPUT_DIRECTORY}/fin-l21</Command>
+        <Command Enabled="yes">echo "Copying the fin-l21 to ../run/ncap-fin-l21-bin/ directory"</Command>
+        <Command Enabled="yes">cp ${CL_OUTPUT_DIRECTORY}/fin-l21 ${CMAKE_CURRENT_LIST_DIR}/run/ncap-fin-l21-bin/fin-l21</Command>
+      </PostBuild>
+      <CustomBuild Enabled="no">
+        <RebuildCommand/>
+        <CleanCommand/>
+        <BuildCommand/>
+        <PreprocessFileCommand/>
+        <SingleFileCommand/>
+        <MakefileGenerationCommand/>
+        <ThirdPartyToolName>None</ThirdPartyToolName>
+        <WorkingDirectory/>
+      </CustomBuild>
+      <AdditionalRules>
+        <CustomPostBuild/>
+        <CustomPreBuild/>
+      </AdditionalRules>
+      <Completion EnableCpp11="no" EnableCpp14="no">
+        <ClangCmpFlagsC/>
+        <ClangCmpFlags/>
+        <ClangPP/>
+        <SearchPaths/>
+      </Completion>
+    </Configuration>
+    <Configuration Name="Release" CompilerType="CLANG" DebuggerType="LLDB Debugger" Type="Executable" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <Compiler Options="-O2;-std=c++17;-Wall" C_Options="-O2;-std=c99;-Wall" Assembler="" Required="yes" PreCompiledHeader="" PCHInCommandLine="no" PCHFlags="" PCHFlagsPolicy="0">
+        <IncludePath Value="."/>
+        <Preprocessor Value="NDEBUG"/>
+      </Compiler>
+      <Linker Options="" Required="yes"/>
+      <ResourceCompiler Options="" Required="no"/>
+      <General OutputFile="" IntermediateDirectory="" Command="$(WorkspacePath)/cmake-build-$(WorkspaceConfiguration)/output/$(ProjectName)" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="$(WorkspacePath)/cmake-build-$(WorkspaceConfiguration)/output" PauseExecWhenProcTerminates="yes" IsGUIProgram="no" IsEnabled="yes"/>
+      <BuildSystem Name="CMake"/>
+      <Environment EnvVarSetName="&lt;Use Defaults&gt;" DbgSetName="&lt;Use Defaults&gt;">
+        <![CDATA[export CC=/usr/bin/clang
+export CXX=/usr/bin/clang++]]>
+      </Environment>
+      <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="" IsExtended="no">
+        <DebuggerSearchPaths/>
+        <PostConnectCommands/>
+        <StartupCommands/>
+      </Debugger>
+      <PreBuild/>
+      <PostBuild>
+        <Command Enabled="yes">strip ${CL_OUTPUT_DIRECTORY}/fin-l21</Command>
+        <Command Enabled="yes">echo "Copying the fin-l21 to ../run/ncap-fin-l21-bin/ directory"</Command>
+        <Command Enabled="yes">cp ${CL_OUTPUT_DIRECTORY}/fin-l21 ${CMAKE_CURRENT_LIST_DIR}/run/ncap-fin-l21-bin/fin-l21</Command>
+      </PostBuild>
+      <CustomBuild Enabled="no">
+        <RebuildCommand/>
+        <CleanCommand/>
+        <BuildCommand/>
+        <PreprocessFileCommand/>
+        <SingleFileCommand/>
+        <MakefileGenerationCommand/>
+        <ThirdPartyToolName>None</ThirdPartyToolName>
+        <WorkingDirectory/>
+      </CustomBuild>
+      <AdditionalRules>
+        <CustomPostBuild/>
+        <CustomPreBuild/>
+      </AdditionalRules>
+      <Completion EnableCpp11="no" EnableCpp14="no">
+        <ClangCmpFlagsC/>
+        <ClangCmpFlags/>
+        <ClangPP/>
+        <SearchPaths/>
+      </Completion>
+    </Configuration>
+  </Settings>
+</CodeLite_Project>

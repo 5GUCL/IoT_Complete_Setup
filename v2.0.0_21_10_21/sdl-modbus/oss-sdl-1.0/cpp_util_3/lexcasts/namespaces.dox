@@ -1,0 +1,15 @@
+namespace	cpp_util_3
+{
+
+	//! Helpers for %lexcast functions family.
+	/*!
+		\since
+		v.2.0.3
+	*/
+	namespace	lexcasts
+	{
+		//! Implementation details.
+		namespace impl
+		{}
+	}
+}

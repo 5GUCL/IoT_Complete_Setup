@@ -1,0 +1,25 @@
+{
+  "event_payload": {
+    "name" : "Inventory_Status",
+    "PLC_Id": 'PLC001',
+    "type": "Alert",
+    "type_name": "Event",
+    "location": "IDRBT Hderabad",
+    "state": "New",
+    "control_module_id": 1,
+    "equipment_module_id": 1,
+    "location_id": 1,
+    "gateway_id": 1,
+    "machine_id": 1,
+    "slot_id": 1,
+    "UUID": {
+      "Date/Sequence": 43996,
+      "E/W": 1,
+      "Latitude": 17.39791,
+      "Longitude": 78.44947,
+      "Name": "IDRBT",
+      "UID": 1,
+      "Year": 2021
+    }
+  }
+}

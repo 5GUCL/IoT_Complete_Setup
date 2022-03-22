@@ -1,0 +1,13 @@
+namespace cpp_util_3
+{
+
+/*!
+ * \since
+ * v.2.3.0
+ * \brief Namespace for tools for hex dumps.
+ */
+namespace hex_dumps
+{
+}
+
+}

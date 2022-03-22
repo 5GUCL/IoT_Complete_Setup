@@ -1,0 +1,26 @@
+[
+  {
+    "controller_group": {
+      "id": "modbus_controller_grp_1",
+      "type": "modbus-server",
+      "attributes": {
+        "name": "About MODBUS Controller Group",
+        "directory": "modbus",
+        "config_file_name": "modbus_server_nodes.json",
+        "config_file_name_yaml": "modbus_server_nodes.yaml"
+      }
+    }
+  },
+  {
+    "controller_group": {
+      "id": "modbus_controller_grp_2",
+      "type": "modbus-master",
+      "attributes": {
+        "name": "About MODBUS Controller Group",
+        "directory": "modbus",
+        "config_file_name": "modbus_master_nodes.json",
+        "config_file_name_yaml": "modbus_master_nodes.yaml"
+      }
+    }
+  }
+]

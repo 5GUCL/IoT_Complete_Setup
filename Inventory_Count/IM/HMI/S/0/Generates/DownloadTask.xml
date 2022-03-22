@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DownloadTask>
+  <ProjectInfo
+    DeviceVersion="14.0.0.0"
+    CreationTime="2021-09-23 17:55:18 (UTC)"
+    Runtime="SMART"
+    RtProjectName="Inventory_Count.HMI_1[KTP400 Basic PN]"
+    RtProjectFolderName="Inventory_Count.HMI_1[KTP400 Basic PN]"
+    DeviceType="KTP400_Basic"
+    DisplayOrientation="0"
+    RTReleaseNo="14.0.0.0"
+    ImageReleaseNo="14.0.0.0"
+    RTCV="14.0.0.0"
+    PRCV="14.0.0.0"
+    FirmwareFileName="KTP400\14.0.0.0\KTP400_V14_00_00_00.fwf"
+    RuntimeFileName="KTP400\14.0.0.0\KTP400_V14_00_00_00.fwf"
+    RuntimeAddonFolderName="KTP400" />
+  <FullDownload>pdata.srt</FullDownload>
+  <FullDownload
+    type="ADMINDATA">pdata.pwx</FullDownload>
+  <FullDownload>pdata.ORIE.cnk</FullDownload>
+  <FullDownload>pdata.ETH0.cnk</FullDownload>
+</DownloadTask>

@@ -1,0 +1,17 @@
+{
+  "connection" : {
+    "modbus" : {
+      "modbus_server_ip": "192.168.0.1",
+      "modbus_server_port": 502
+    },
+    "mqtt" : {
+      "mqtt_broker_ip" : "172.27.20.83",
+      "mqtt_broker_port" : 1883,
+      "mqtt_topic" : "idrbt/sensor/pay",
+      "mqtt_client_id" : "cl1"
+    }
+  },
+  "register" : {
+    "val" : 0
+  }
+}

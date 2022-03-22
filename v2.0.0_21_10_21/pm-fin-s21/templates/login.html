@@ -1,0 +1,44 @@
+{% extends "base-index-tp.html" %}
+{% block head %}
+    {{ super() }}
+
+    <script type="text/javascript" charset="utf-8">
+      $(document).ready(function() {
+            $('#sidebar-iot-data-btn').click(function(){
+
+            });
+
+            $('#sidebar-txn-btn').click(function(){
+
+            });
+
+            // Sidebar simple state management.
+            document.getElementById("sidebar-iot-data-btn").classList.remove('active');
+            document.getElementById("sidebar-iot-data-btn").classList.remove('disabled');
+            document.getElementById("sidebar-iot-data-btn").classList.add('disabled');
+
+            document.getElementById("sidebar-txn-btn").classList.remove('active');
+            document.getElementById("sidebar-txn-btn").classList.remove('disabled');
+            document.getElementById("sidebar-txn-btn").classList.add('disabled');
+
+            document.getElementById("navbarSupportedContent").classList.remove('disabled');
+            document.getElementById("navbarSupportedContent").classList.add('disabled');
+        });
+    </script>
+{% endblock %}
+
+<!-- Page content-->
+{% block content %}
+    <div class="container">
+        <h2 class="mt-4 text-center">IoT Enabled Financial Transactions</h2>
+
+        <div class="row justify-content-md-center mt-4">
+            <div class="card shadow p-3 mb-5 rounded text-center">
+              <div class="card-body">
+                  <a href= "{{ url_for('pm_fin_s21_auth.login') }}" class="btn btn-success btn-lg mt-4">Login With OIDC</a>
+                  <h4 class="mt-4">Unified Identity And Access Management</h4>
+              </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

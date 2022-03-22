@@ -1,0 +1,42 @@
+---
+  #############################################################################
+  # 
+  # This is top level config file to be loaded first by the application launcher.
+  # The application launcher first reads this file to know the controllers provisioned in the system.
+  #
+  #############################################################################
+  #
+  # config_root is the directory where all the config files are located.
+  #
+  # $<source-directory>
+  #     |-install
+  #     |----|-config (This is config_root)
+  #          
+  # controller_group.id -> should be unique across the system.
+  # controller_group.type -> supported keyword are "modbus-server" and "modbus-master".
+  # controller_group.attributes.name -> You can override this with a string.
+  # controller_group.attributes.directory -> a directory under $config_root where 
+  #    config files of the node (modbus-server or modbus-master) reside.
+  # controller_group.attributes.config_file_name -> YAML config is convered and saved to a JSON file.
+  # controller_group.attributes.config_file_name_yaml -> the launcher reads this file and generates
+  #    JSON file. 
+  #
+  #############################################################################
+  - 
+    controller_group: 
+      id: "modbus_controller_grp_1"
+      type: "modbus-server"
+      attributes: 
+        name: "About MODBUS Controller Group"
+        directory: "modbus"
+        config_file_name: "modbus_server_nodes.json"
+        config_file_name_yaml: "modbus_server_nodes.yaml"
+  - 
+    controller_group: 
+      id: "modbus_controller_grp_2"
+      type: "modbus-master"
+      attributes: 
+        name: "About MODBUS Controller Group"
+        directory: "modbus"
+        config_file_name: "modbus_master_nodes.json"
+        config_file_name_yaml: "modbus_master_nodes.yaml"

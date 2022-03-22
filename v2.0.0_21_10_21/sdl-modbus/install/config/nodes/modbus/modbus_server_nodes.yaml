@@ -1,0 +1,228 @@
+---
+  #############################################################################
+  #
+  # Group of modbus-slave controllers
+  #
+  #############################################################################
+  #
+  # Broad structure of the config file
+  # one controller has [ one or more agents ]
+  #                           each agent has { one node }
+  #                                                node has { one modbus_server }
+  #
+  #############################################################################
+  -
+    controller:
+      # The controller ID should be unique. Do not use any special characters.
+      # It can be alpha-numeric Avoid <spaces> in the ID string.
+      id: "SC001"
+      type: "modbus-server"
+      attributes:
+        name: "About MODBUS Contoller"
+        #
+        # Logging.
+        # Every controller has its own logging. So, the logger_code and controller_logger_name
+        # should be unique across the system.
+        # It can be alpha-numeric Avoid <spaces>.
+        logger_code: "modbus-server-1"
+        controller_logger_name: "modbus-server-controller-1"
+        #
+        # Every controller has an API server for agents and other components to interact with the
+        # controller. So, the port numbers must be unique
+        api_server_listen_address: "localhost"
+        api_server_listen_port: 11301
+        #
+        # Do not tet this more than maximum of CPUs. Usually this number 2 will work.
+        # Do not change unless you have heavy traffic 1000's of messages per second.
+        api_server_threads: 2
+        #
+        # current directory under $config_node.
+        directory: "modbus"
+        config_file_name: "modbus_server_nodes.json"
+        #
+        # Type of modbus.
+        is_slave: true
+        is_master: false
+      agents:
+        -
+          agent:
+            # The agent ID should be unique. Do not use any special characters.
+            # It can be alpha-numeric Avoid <spaces> in the ID string.
+            id: "A001"
+            type: "modbus-server"
+            attributes:
+              agent_name: "My Home Modbus Gateway"
+              #
+              # Logging.
+              # Every agent has its own logging but resides under its controller log directory.
+              # So, agent_logger_name should be unique across the system.
+              # It can be alpha-numeric Avoid <spaces>.
+              agent_logger_name: "modbus-server-agent-1"
+              #
+              # External applications can communicate with the agent through its controller interface.
+              # Subsequent releases will have the hooks.
+              agent_address: "http://localhost:11301/:agent"
+              agent_api_key: "AGENT+SECRET+TRUST+KEY"
+              #
+              # Every agent has only one node.
+              max_nodes: 1
+            node:
+              # The node ID should be unique. Do not use any special characters.
+              # It can be alpha-numeric Avoid <spaces> in the ID string.
+              id: "N001"
+              type: "modbus-server"
+              attributes:
+                node_name: "Name of the MODBUS smart transducer."
+                #
+                # External applications can communicate with the node through its agent interface.
+                # Subsequent releases will have the hooks.
+                node_address: "http://localhost:11301/:agent/:node"
+                node_api_key: "NODE+SECRET+TRUST+KEY"
+              modbus_server:
+                # modbus server node connects with one master device.
+                # The slave_id, address and port and mappings should be changed as per the application
+                # and deployment. The values are for example purpose only.
+                # The mappings corresponds to local modbus server.
+                device:
+                  slave_id: 0
+                  device_address: "127.0.0.1"
+                  device_port: 1502
+                  #
+                  # For local testing. Do not change this value.
+                  connections: 10
+                  #
+                  # Simulation.
+                  role: "virtual_device"
+                  modbus_mapping:
+                    # This is application specific mapping.
+                    coil_blocks:
+                      -
+                        # Each block represents a memory in the server. So you should carefully
+                        # map the address space.
+                        # Note: block is convenient separation of the address space only.
+                        block_id: 0
+                        bits_start_address: 0
+                        nb_bits: 16
+                        bits_end_address: 24
+                      -
+                        block_id: 1
+                        bits_start_address: 512
+                        nb_bits: 16
+                        bits_end_address: 1024
+                    input_bits_blocks:
+                      -
+                        block_id: 0
+                        input_bits_start_address: 0
+                        nb_input_bits: 16
+                        input_bits_end_address: 24
+                      -
+                        block_id: 1
+                        input_bits_start_address: 0
+                        nb_input_bits: 0
+                        input_bits_end_address: 0
+                    input_register_blocks:
+                      -
+                        block_id: 0
+                        input_registers_start_address: 0
+                        nb_input_registers: 8
+                        input_registers_end_address: 10
+                      -
+                        block_id: 1
+                        input_registers_start_address: 3200
+                        nb_input_registers: 6
+                        input_registers_end_address: 3240
+                    register_blocks:
+                      -
+                        block_id: 2
+                        registers_start_address: 21
+                        nb_registers: 10
+                        registers_end_address: 50
+              descriptors:
+                #
+                # Now we move to a higher level of abstraction - Thing.
+                # One or more modbus devices that "represents" an asset can be defined as thing.
+                # The thing meta data follows your application standard.
+                #
+                thing:
+                  # The Thing ID should be unique (UUID). Do not use any special characters.
+                  # It can be alpha-numeric Avoid <spaces> in the ID string.
+                  identifier: "ABCD-1234-YYYY"
+                  description: "This thing represents an asset @your factory"
+                  #
+                  # Meta data / definiton of things.
+                  url: "https://semanticweb.vidcentum.tech/api/singletons/get/virtualmodbusdevices0001"
+        -
+          agent:
+            id: "A002"
+            type: "modbus-server"
+            attributes:
+              agent_name: "My Home Modbus Gateway"
+              agent_logger_name: "modbus-server-agent-2"
+              agent_address: "http://localhost:11301/:agent"
+              agent_api_key: "AGENT+SECRET+TRUST+KEY"
+              max_nodes: 1
+            node:
+              id: "N002"
+              type: "modbus-server"
+              attributes:
+                node_name: "Name of the MODBUS smart transducer."
+                node_address: "http://localhost:11301/:agent/:node"
+                node_api_key: "NODE+SECRET+TRUST+KEY"
+              modbus_server:
+                device:
+                  slave_id: 0
+                  device_address: "127.0.0.1"
+                  device_port: 2502
+                  connections: 10
+                  role: "virtual_device"
+                  modbus_mapping:
+                    coil_blocks:
+                      -
+                        block_id: 0
+                        bits_start_address: 0
+                        nb_bits: 16
+                        bits_end_address: 24
+                      -
+                        block_id: 1
+                        bits_start_address: 512
+                        nb_bits: 16
+                        bits_end_address: 1024
+                    input_bits_blocks:
+                      -
+                        block_id: 0
+                        input_bits_start_address: 0
+                        nb_input_bits: 16
+                        input_bits_end_address: 24
+                      -
+                        block_id: 1
+                        input_bits_start_address: 0
+                        nb_input_bits: 0
+                        input_bits_end_address: 0
+                    input_register_blocks:
+                      -
+                        block_id: 0
+                        input_registers_start_address: 0
+                        nb_input_registers: 8
+                        input_registers_end_address: 10
+                      -
+                        block_id: 1
+                        input_registers_start_address: 3200
+                        nb_input_registers: 6
+                        input_registers_end_address: 3240
+                    register_blocks:
+                      -
+                        block_id: 0
+                        registers_start_address: 0
+                        nb_registers: 10
+                        registers_end_address: 100
+                      -
+                        block_id: 1
+                        registers_start_address: 0
+                        nb_registers: 10
+                        registers_end_address: 100
+              descriptors:
+                thing:
+                  identifier: "ABCD-1234-ZZZZ"
+                  description: "This thing represents an asset @your factory"
+                  url: "https://semanticweb.vidcentum.tech/api/singletons/get/virtualmodbusdevices0002"
+

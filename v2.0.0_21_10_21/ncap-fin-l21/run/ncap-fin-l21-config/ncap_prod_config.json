@@ -1,0 +1,416 @@
+[
+  {
+    "ncap": {
+      "id": "NCAP-FIN-0001",
+      "type": "modbus_mqtt_expert_system",
+      "version": "1.0.2",
+      "attributes": {
+        "name": "NCAP LAB",
+        "description": "IoT initiated financial transactions.",
+        "api_server_listen_address": "localhost",
+        "api_server_listen_port": 18401,
+        "api_server_threads": 2
+      },
+      "auth": {
+        "token_endpoint": "",
+        "grant_type": "password",
+        "client_id": "",
+        "client_secret": "",
+        "username": "<IDP user>",
+        "password": "<IDP user password>",
+        "password_encryption": "PLAIN"
+      },
+      "api_server": {
+        "base_url": "http://localhost:5000",
+        "device_token_endpoint": "/pub/auth/device-token"
+      },
+      "mqtt": {
+        "broker": {
+          "secure": true,
+          "host": "wss.emq.farout.in",
+          "port": 443,
+          "protocol": "MQTT Version 3.1.1",
+          "ca_cert": "../ncap-fin-l21-certs/letsencrypt-cacert.pem",
+          "mqtt_client_id": "ncap-fin-lab21",
+          "username": "$auth.username",
+          "password": "$ACCESS_TOKEN"
+        }
+      },
+      "iot": {
+        "asset": {
+          "id": "ABCD-1234-YYYY",
+          "name": "Name of the asset",
+          "description": "Abot the asset and its meta data. Get meta data from the url below.",
+          "meta_data_url": "https://semanticweb.vidcentum.tech/api/singletons/get/virtualmodbusdevices0001"
+        },
+        "data_source": {
+          "subscription": {
+            "service_enabled": true,
+            "host": "localhost",
+            "port": 11401,
+            "protocol": "ws",
+            "payload_mapping": "modbus_mapping",
+            "username": "$auth.username",
+            "password": "$ACCESS_TOKEN",
+            "ca_cert": "../ncap-fin-l21-certs/some-cacert.pem"
+          },
+          "controller_api": {
+            "service_enabled": false,
+            "host": "localhost",
+            "port": 11401,
+            "api_protocol": "http",
+            "payload_mapping": "modbus_mapping",
+            "username": "$auth.username",
+            "password": "$ACCESS_TOKEN",
+            "ca_cert": "../ncap-fin-l21-certs/some-cacert.pem"
+          }
+        },
+        "expert_system": [
+          {
+            "id": "ORDER_RULE_001",
+            "priority": 10,
+            "facts_db": "../ncap-fin-l21-fc-rules/facts-db.clp",
+            "inference_engine": "CLIPS",
+            "rules": "../ncap-fin-l21-fc-rules/order.clp"
+          }
+        ],
+        "simple_univariate_holding_register_rules": [
+          {
+            "id": "SIMPLE_UNIVARIATE_ORDER_RULE_001",
+            "priority": 10,
+            "block_id": 2,
+            "registers_start_address": 21,
+            "holding_register_number": 1,
+            "registers_end_address": 21,
+            "upper_upper_limit": 100,
+            "upper_lower_limit": 75,
+            "lower_upper_limit": 25,
+            "lower_lower_limit": 10
+          }
+        ],
+        "payload_mapping": {
+          "modbus_mapping": {
+            "controller": {
+              "id": "C001"
+            },
+            "agent": {
+              "id": "A001"
+            },
+            "node": {
+              "id": "N001"
+            },
+            "coil_blocks": [
+              {
+                "block_id": 0,
+                "bits_start_address": 0,
+                "nb_bits": 0,
+                "bits_end_address": 0,
+                "eu_quantity": "ON/OFF",
+                "eu_factor": "",
+                "eu_manifest_constant": 4
+              },
+              {
+                "block_id": 1,
+                "bits_start_address": 512,
+                "nb_bits": 0,
+                "bits_end_address": 0,
+                "eu_quantity": "ON/OFF",
+                "eu_factor": "",
+                "eu_manifest_constant": 4
+              }
+            ],
+            "input_bits_blocks": [
+              {
+                "block_id": 0,
+                "input_bits_start_address": 0,
+                "nb_input_bits": 0,
+                "input_bits_end_address": 0,
+                "eu_quantity": "ON/OFF",
+                "eu_factor": "",
+                "eu_manifest_constant": 4
+              },
+              {
+                "block_id": 1,
+                "input_bits_start_address": 0,
+                "nb_input_bits": 0,
+                "input_bits_end_address": 0,
+                "eu_quantity": "ON/OFF",
+                "eu_factor": "",
+                "eu_manifest_constant": 4
+              }
+            ],
+            "input_register_blocks": [
+              {
+                "block_id": 0,
+                "input_registers_start_address": 0,
+                "nb_input_registers": 0,
+                "input_registers_end_address": 10,
+                "eu_quantity": "°C",
+                "eu_factor": "",
+                "eu_manifest_constant": 0
+              },
+              {
+                "block_id": 1,
+                "input_registers_start_address": 3200,
+                "nb_input_registers": 0,
+                "input_registers_end_address": 3240,
+                "eu_quantity": "°C",
+                "eu_factor": "",
+                "eu_manifest_constant": 0
+              }
+            ],
+            "register_blocks": [
+              {
+                "block_id": 0,
+                "registers_start_address": 19,
+                "nb_registers": 1,
+                "registers_end_address": 19,
+                "block_refresh_interval_ms": 0,
+                "eu_quantity": "",
+                "eu_factor": "",
+                "eu_manifest_constant": 0
+              },
+              {
+                "block_id": 1,
+                "registers_start_address": 20,
+                "nb_registers": 1,
+                "registers_end_address": 20,
+                "block_refresh_interval_ms": 0,
+                "eu_quantity": "",
+                "eu_factor": "",
+                "eu_manifest_constant": 0
+              },
+              {
+                "block_id": 2,
+                "registers_start_address": 21,
+                "nb_registers": 1,
+                "registers_end_address": 21,
+                "block_refresh_interval_ms": 0,
+                "eu_quantity": "",
+                "eu_factor": "",
+                "eu_manifest_constant": 0
+              },
+              {
+                "block_id": 3,
+                "registers_start_address": 22,
+                "nb_registers": 1,
+                "registers_end_address": 22,
+                "block_refresh_interval_ms": 0,
+                "eu_quantity": "",
+                "eu_factor": "",
+                "eu_manifest_constant": 0
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "ncap": {
+      "id": "NCAP-FIN-0002",
+      "type": "modbus_mqtt_expert_system",
+      "version": "1.0.2",
+      "attributes": {
+        "name": "NCAP LAB",
+        "description": "IoT initiated financial transactions.",
+        "api_server_listen_address": "localhost",
+        "api_server_listen_port": 18402,
+        "api_server_threads": 2
+      },
+      "auth": {
+        "token_endpoint": "",
+        "grant_type": "password",
+        "client_id": "",
+        "client_secret": "",
+        "username": "<IDP user>",
+        "password": "<IDP user password>",
+        "password_encryption": "PLAIN"
+      },
+      "api_server": {
+        "base_url": "http://localhost:5000",
+        "device_token_endpoint": "/pub/auth/device-token"
+      },
+      "mqtt": {
+        "broker": {
+          "secure": true,
+          "host": "wss.emq.farout.in",
+          "port": 443,
+          "protocol": "MQTT Version 3.1.1",
+          "ca_cert": "../ncap-fin-l21-certs/letsencrypt-cacert.pem",
+          "mqtt_client_id": "ncap-fin-lab21",
+          "username": "$auth.username",
+          "password": "$ACCESS_TOKEN"
+        }
+      },
+      "iot": {
+        "asset": {
+          "id": "ABCD-1234-YYYY",
+          "name": "Name of the asset",
+          "description": "Abot the asset and its meta data. Get meta data from the url below.",
+          "meta_data_url": "https://semanticweb.vidcentum.tech/api/singletons/get/virtualmodbusdevices0001"
+        },
+        "data_source": {
+          "subscription": {
+            "service_enabled": true,
+            "host": "localhost",
+            "port": 11401,
+            "protocol": "ws",
+            "payload_mapping": "modbus_mapping",
+            "username": "$auth.username",
+            "password": "$ACCESS_TOKEN",
+            "ca_cert": "../ncap-fin-l21-certs/some-cacert.pem"
+          },
+          "controller_api": {
+            "service_enabled": false,
+            "host": "localhost",
+            "port": 11401,
+            "api_protocol": "http",
+            "payload_mapping": "modbus_mapping",
+            "username": "$auth.username",
+            "password": "$ACCESS_TOKEN",
+            "ca_cert": "../ncap-fin-l21-certs/some-cacert.pem"
+          }
+        },
+        "expert_system": [
+          {
+            "id": "ORDER_RULE_001",
+            "priority": 10,
+            "facts_db": "../ncap-fin-l21-fc-rules/facts-db.clp",
+            "inference_engine": "CLIPS",
+            "rules": "../ncap-fin-l21-fc-rules/order.clp"
+          }
+        ],
+        "simple_univariate_holding_register_rules": [
+          {
+            "id": "SIMPLE_UNIVARIATE_ORDER_RULE_001",
+            "priority": 10,
+            "block_id": 2,
+            "registers_start_address": 21,
+            "holding_register_number": 1,
+            "registers_end_address": 21,
+            "upper_upper_limit": 100,
+            "upper_lower_limit": 75,
+            "lower_upper_limit": 25,
+            "lower_lower_limit": 10
+          }
+        ],
+        "payload_mapping": {
+          "modbus_mapping": {
+            "controller": {
+              "id": "C001"
+            },
+            "agent": {
+              "id": "A001"
+            },
+            "node": {
+              "id": "N001"
+            },
+            "coil_blocks": [
+              {
+                "block_id": 0,
+                "bits_start_address": 0,
+                "nb_bits": 0,
+                "bits_end_address": 0,
+                "eu_quantity": "ON/OFF",
+                "eu_factor": "",
+                "eu_manifest_constant": 4
+              },
+              {
+                "block_id": 1,
+                "bits_start_address": 512,
+                "nb_bits": 0,
+                "bits_end_address": 0,
+                "eu_quantity": "ON/OFF",
+                "eu_factor": "",
+                "eu_manifest_constant": 4
+              }
+            ],
+            "input_bits_blocks": [
+              {
+                "block_id": 0,
+                "input_bits_start_address": 0,
+                "nb_input_bits": 0,
+                "input_bits_end_address": 0,
+                "eu_quantity": "ON/OFF",
+                "eu_factor": "",
+                "eu_manifest_constant": 4
+              },
+              {
+                "block_id": 1,
+                "input_bits_start_address": 0,
+                "nb_input_bits": 0,
+                "input_bits_end_address": 0,
+                "eu_quantity": "ON/OFF",
+                "eu_factor": "",
+                "eu_manifest_constant": 4
+              }
+            ],
+            "input_register_blocks": [
+              {
+                "block_id": 0,
+                "input_registers_start_address": 0,
+                "nb_input_registers": 0,
+                "input_registers_end_address": 10,
+                "eu_quantity": "°C",
+                "eu_factor": "",
+                "eu_manifest_constant": 0
+              },
+              {
+                "block_id": 1,
+                "input_registers_start_address": 3200,
+                "nb_input_registers": 0,
+                "input_registers_end_address": 3240,
+                "eu_quantity": "°C",
+                "eu_factor": "",
+                "eu_manifest_constant": 0
+              }
+            ],
+            "register_blocks": [
+              {
+                "block_id": 0,
+                "registers_start_address": 19,
+                "nb_registers": 1,
+                "registers_end_address": 19,
+                "block_refresh_interval_ms": 0,
+                "eu_quantity": "",
+                "eu_factor": "",
+                "eu_manifest_constant": 0
+              },
+              {
+                "block_id": 1,
+                "registers_start_address": 20,
+                "nb_registers": 1,
+                "registers_end_address": 20,
+                "block_refresh_interval_ms": 0,
+                "eu_quantity": "",
+                "eu_factor": "",
+                "eu_manifest_constant": 0
+              },
+              {
+                "block_id": 2,
+                "registers_start_address": 21,
+                "nb_registers": 1,
+                "registers_end_address": 21,
+                "block_refresh_interval_ms": 0,
+                "eu_quantity": "",
+                "eu_factor": "",
+                "eu_manifest_constant": 0
+              },
+              {
+                "block_id": 3,
+                "registers_start_address": 22,
+                "nb_registers": 1,
+                "registers_end_address": 22,
+                "block_refresh_interval_ms": 0,
+                "eu_quantity": "",
+                "eu_factor": "",
+                "eu_manifest_constant": 0
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+]

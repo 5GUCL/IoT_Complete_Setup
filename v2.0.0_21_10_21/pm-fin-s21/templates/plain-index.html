@@ -1,0 +1,158 @@
+{% extends "base-index-tp.html" %}
+{% block head %}
+    {{ super() }}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.2.0/socket.io.js" crossorigin="anonymous"></script>
+    <!-- socketio shall be rendered through SSL/HHTPS See above.-->
+    <!-- <script src="{{ url_for('static', filename='js/socket.io-4.2.0/socket.io.min.js') }}"></script> -->
+    <script type="text/javascript" charset="utf-8">
+        $(document).ready(function() {
+            // Connect to the Socket.IO server.
+            var socket = io('ws://localhost:5000/controller');
+            var txn_count = 0;
+
+            socket.on('connect', function() {
+                socket.emit('s21_controller_hello_api', {'s21_controller_hello_api': 'I\'m connected!'});
+            });
+
+            socket.on('disconnect', function() {
+                document.getElementById("ws-connect-status").classList.remove('bg-success');
+                document.getElementById("ws-connect-status").classList.add('bg-danger');
+            });
+
+            socket.on('s21_rx_event', function(msg, cb) {
+                 $("#iot-txn-table>tbody")
+                  .prepend(
+                            '<tr>'                                        +
+                            '<th scope=\"row\">' + ++txn_count + '</th>'  +
+                            '<td>' + msg.s21_rx_event                     + '</td>' +
+                            '<td>' + msg.s21_rx_event_data.iot_device     + '</td>' +
+                            '<td>' + msg.s21_rx_event_data.net_quantity   + '</td>' +
+                            '<td>' + msg.s21_rx_event_data.time_instance  + '</td>' +
+                            '<td>' + msg.s21_txn_status                   + '</td>' +
+                            '</tr>'
+                          );
+
+                if (cb)
+                    cb();
+            });
+
+            socket.on('s21_controller_connect_response', function(msg, cb) {
+               document.getElementById("ws-connect-status").classList.remove('bg-danger');
+               document.getElementById("ws-connect-status").classList.add('bg-success');
+                if (cb)
+                    cb();
+            });
+
+            // Interval function that tests message latency by sending a "ping"
+            // message. The server then responds with a "pong" message and the
+            // round trip time is measured.
+            var ping_pong_times = [];
+            var start_time;
+            window.setInterval(function() {
+                start_time = (new Date).getTime();
+                $('#transport').text(socket.io.engine.transport.name);
+                socket.emit('s21_controller_ping');
+            }, 1000);
+
+            socket.on('s21_controller_pong', function() {
+                var latency = (new Date).getTime() - start_time;
+                ping_pong_times.push(latency);
+                ping_pong_times = ping_pong_times.slice(-30); // keep last 30 samples
+                var sum = 0;
+                for (var i = 0; i < ping_pong_times.length; i++)
+                    sum += ping_pong_times[i];
+                $('#ping-pong').text(Math.round(10 * sum / ping_pong_times.length) / 10);
+            });
+
+            $('#txn-clear-btn').click(function(){
+              $("#iot-txn-table>tbody tr").remove();
+              txn_count = 0;
+            });
+
+            $('#sidebar-iot-data-btn').click(function(){
+
+                document.getElementById("sidebar-txn-btn").classList.remove('active');
+                document.getElementById("sidebar-txn-btn").classList.remove('disabled');
+
+                document.getElementById("sidebar-iot-data-btn").classList.remove('active');
+                document.getElementById("sidebar-iot-data-btn").classList.add('active');
+                document.getElementById("sidebar-iot-data-btn").classList.add('disabled');
+            });
+
+            $('#sidebar-txn-btn').click(function(){
+
+                location.href = "/transactions";
+                location.replace();
+
+                document.getElementById("sidebar-iot-data-btn").classList.remove('active');
+                document.getElementById("sidebar-iot-data-btn").classList.remove('disabled');
+
+                document.getElementById("sidebar-txn-btn").classList.remove('active');
+                document.getElementById("sidebar-txn-btn").classList.add('active');
+                document.getElementById("sidebar-txn-btn").classList.add('disabled');
+
+            });
+
+            // Sidebar simple state management.
+            document.getElementById("sidebar-txn-btn").classList.remove('active');
+            document.getElementById("sidebar-txn-btn").classList.remove('disabled');
+
+            document.getElementById("sidebar-iot-data-btn").classList.remove('active');
+            document.getElementById("sidebar-iot-data-btn").classList.add('active');
+            document.getElementById("sidebar-iot-data-btn").classList.add('disabled');
+        });
+    </script>
+{% endblock %}
+
+<!-- Page content-->
+{% block content %}
+    <div class="container-fluid">
+        <h2 class="mt-4 text-center">IoT Enabled Financial Transactions</h2>
+
+        <div class="container mt-4">
+          <div class="row justify-content-md-center">
+              <div class="card shadow p-3 mb-5 rounded">
+                <div class="card-body">
+                  <h5 class="card-title">Connection</h5>
+                  <div class="progress visible">
+                    <div id="ws-connect-status" class=" progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Features</h5>
+                  <p class="card-text">
+                    Async mode is: <b>{{ async_mode }}</b> <br>
+                    Transport is: <b><span id="transport"></span></b>
+                  </p>
+                  <a href="/logout" class="btn btn-danger">Logout</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container mt-1">
+          <div class="row justify-content-md-center">
+            <div class="card shadow p-3 mb-5 rounded">
+                <div class="card-body">
+                  <h4>Transactions:</h4>
+                  <button id="txn-clear-btn" type="button" class="btn btn-warning btn-sm" >Clear All Transactions</button>
+
+                  <table id="iot-txn-table" class="table mt-2">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Topic</th>
+                        <th scope="col">Device</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Time</th>
+                        <th scope="col">Txn Status</th>
+                      </tr>
+                    </thead>
+                    <tbody></tbody>
+                  </table>
+                </div>
+            </div>
+          </div>
+        </div>
+    </div>
+{% endblock %}

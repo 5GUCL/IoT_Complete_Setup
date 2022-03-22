@@ -1,0 +1,38 @@
+/*==========================RELEASE NOTICE==========================*/
+/*
+ * Software:  Network Capable Application Software (NCAP) for MODBUS - MQTT - Expert Systems Applications.
+ * Release Version: 1.0.3
+ * Release Date: 13/Oct/2021
+ * Product code: NCAP-FIN-L21
+ * Platform code: PM.ODP (Operational Data Platform)
+ * Type of software: Application.
+ * License: Refer to LICENSE file of the software package. GPL-v3.
+ * Company: Vidcentum R&D Pvt Ltd, India (CIN: U72200TG2009PTC063723).
+ * Copyright (c) 2020-2021.
+ * Email: support@vidcentum.com
+ * Website: https://vidcentum.com
+ * Address: Plot No. 1-62/20, Kavuri Hills,
+ *          Hyderabad - 500081, Telangana, India.
+*/
+/*========================END RELEASE NOTICE========================*/
+
+Release Notes:
+
+- Added Logging support.
+
+System Requirements
+  Development Setup
+    - Ubuntu 20.04 Linux, x86_64
+    - Compile on Raspberry Pi target.
+    - CodeLite IDE
+    - C++17, CMake
+  Deployment (Target System)
+    - Ubuntu 20.04 Linux, x86_64 desktop / workstation or cloud VM.
+    - Raspberry Pi with at least 2GB RAM, 64 Bit.
+  Dependencies
+    - See docs/open-source-software-and-dependecies.txt for more details.
+
+Support
+  Contact support@vidcentum.com
+
+

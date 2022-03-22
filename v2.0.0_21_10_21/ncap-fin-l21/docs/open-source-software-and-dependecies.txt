@@ -1,0 +1,273 @@
+/*==========================LICENSE NOTICE==========================*/
+/*
+ * Copyright (c) 2021 Vidcentum R&D Pvt Ltd, India.
+ * License: Refer to LICENSE file of the software package.
+ * Email: support@vidcentum.com
+ * Website: https://vidcentum.com
+*/
+/*========================END LICENSE NOTICE========================*/
+
+======================================================================
+The Edge software uses several open source and publicly available software.
+The follwing are such modules and users of this sotware may obtain more
+information about them from the respective providers.
+
+Project Location: oss/ directory
+Mode of inclusion: Source level.
+======================================================================
+
+----------------------------------------------------------------------
+Software Module: cpp-base64
+Source: https://github.com/ReneNyffenegger/cpp-base64
+Licence: Zlib
+https://github.com/ReneNyffenegger/cpp-base64/blob/master/LICENSE
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Software Module: cpp_util_3
+Source: https://github.com/Stiffstream/cpp-util
+Licence: Public / Open Source
+https://github.com/Stiffstream/cpp-util/blob/master/LICENSE
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Software Module: cpr
+Source: https://github.com/whoshuu/cpr
+Licence: MIT License
+https://github.com/whoshuu/cpr/blob/master/LICENSE
+
+Copy include, cpr -> oss/cpr
+rename oss/cpr/cpr -> oss/cpr/src
+
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Software Module: fmt
+Source: https://github.com/fmtlib/fmt
+Licence: Public / Open Source
+https://github.com/fmtlib/fmt/blob/master/LICENSE.rst
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Software Module: gl3w
+Source: https://github.com/skaslev/gl3w
+Licence: Public / Open Source
+https://github.com/skaslev/gl3w/blob/master/UNLICENSE
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Software Module: imgui
+Source: https://github.com/ocornut/imgui
+Licence: MIT License
+https://github.com/ocornut/imgui/blob/master/LICENSE.txt
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Software Module: imnodes
+Source: https://github.com/Nelarius/imnodes
+Licence: MIT License
+https://github.com/Nelarius/imnodes/blob/master/LICENSE.md
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Software Module: implot
+Source: https://github.com/epezent/implot
+Licence: MIT License
+https://github.com/epezent/implot/blob/master/LICENSE
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Software Module: ixwebsocket
+Source: https://github.com/machinezone/IXWebSocket
+Licence: BSD 3-Clause "New" or "Revised" License
+https://github.com/machinezone/IXWebSocket/blob/master/LICENSE.txt
+
+For Client ONLY sources:
+Exclude the following files from the build.
+https://github.com/machinezone/IXWebSocket/issues/309
+https://github.com/machinezone/IXWebSocket/blob/master/docs/design.md
+
+
+IXWebSocketServer.cpp 
+IXWebSocketServer.h
+IXWebSocketProxyServer.cpp
+IXWebSocketProxyServer.h
+
+IXHttpServer.cpp
+IXHttpServer.h
+
+
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Software Module: nlohmann
+Source: https://github.com/nlohmann/json
+Licence: MIT License
+https://github.com/nlohmann/json/blob/develop/LICENSE.MITs
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Software Module: mqtt_cpp
+Source: https://github.com/redboltz/mqtt_cpp
+Licence: Boost Software License 1.0
+https://github.com/redboltz/mqtt_cpp/blob/master/LICENSE_1_0.txt
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Software Module: SI
+Source: https://github.com/bernedom/SI
+Licence: MIT License
+https://github.com/bernedom/SI/blob/main/LICENSE
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Software Module: so_5
+Source: https://github.com/Stiffstream/sobjectizer
+Licence: SObjectizer license / Public / Open Source
+https://github.com/Stiffstream/sobjectizer/blob/master/LICENSE
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Software Module: so_5_extra
+Source: https://github.com/Stiffstream/sobjectizer
+Licence: SObjectizer license / Public / Open Source
+https://github.com/Stiffstream/so5extra/blob/master/LICENSE
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Software Module: spdlog
+Source: https://github.com/gabime/spdlog
+Licence: MIT License (MIT)
+https://github.com/gabime/spdlog/blob/v1.x/LICENSE
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Software Module: stb
+Source: https://github.com/nothings/stb
+Licence: MIT License (MIT)
+https://github.com/nothings/stb/blob/master/LICENSE
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Software Module: taskflow
+Source: https://github.com/taskflow/taskflow
+Licence: Taskflow LICENSE
+https://github.com/taskflow/taskflow/blob/master/LICENSE
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Software Module: uSockets
+Source: https://github.com/uNetworking/uSockets
+Licence: Apache License 2.0
+https://github.com/uNetworking/uSockets/blob/master/LICENSE
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Software Module: uWebSockets
+Source: https://github.com/uNetworking/uWebSockets
+Licence: Apache License 2.0
+https://github.com/uNetworking/uWebSockets/blob/master/LICENSE
+----------------------------------------------------------------------
+
+======================================================================
+The following software modules are compiled separately or use the 
+Linux distribution packages.
+
+Project Location: smart-dala-logger-lite/oss
+Mode of inclusion: Library. (Statically or dynamically linked)
+======================================================================
+
+----------------------------------------------------------------------
+Software Module: cUrl
+Source: https://github.com/curl/curl
+Licence: Open Software
+https://github.com/curl/curl/blob/master/COPYING
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Software Module: hiredis
+Source: https://github.com/redis/hiredis
+Licence:  BSD-3-Clause License
+https://github.com/redis/hiredis/blob/master/COPYING
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Software Module: redis-plus-plus
+Source: https://github.com/sewenew/redis-plus-plus
+Licence:  Apache-2.0 License
+https://github.com/sewenew/redis-plus-plus/blob/master/LICENSE
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Software Module: libuv
+Source: https://github.com/libuv/libuv
+Licence:  Open Software
+https://github.com/libuv/libuv/blob/v1.x/LICENSE
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Software Module: Redis
+Source: https://github.com/redis/redis
+Licence:  BSD-3-Clause License
+https://github.com/redis/redis/blob/unstable/COPYING
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Software Modules: Install from the linux distribution packages.
+sudo apt-get install build-essential libgl1-mesa-dev  # Debian, Ubuntu
+sudo apt-get install libglew-dev libsdl2-dev libsdl2-image-dev libglm-dev libfreetype6-dev  # Debian, Ubuntu
+sudo apt-get install libglfw3-dev
+sudo apt-get install libosmesa6-dev 
+sudo apt-get install libfreetype-dev libfreetype6 libfreetype6-dev
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Software Module: libuv. Install from the linux distribution packages.
+You may compile the library and install locally. Follow the instructins
+of the package.
+Source: https://github.com/libuv/libuv
+Licence: Open Source.
+https://github.com/libuv/libuv/blob/v1.x/LICENSE
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Software Module: libmodbus. Install from the linux distribution packages.
+You may compile the library and install locally. Follow the instructins
+of the package.
+Source: https://github.com/stephane/libmodbus/
+Licence: GNU Lesser General Public License v2.1.
+https://github.com/stephane/libmodbus/blob/master/COPYING.LESSER
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Software Module: HDF5. Install from the linux distribution packages.
+You may compile the library and install locally. Follow the instructins
+of the package.
+Source: https://www.hdfgroup.org/solutions/hdf5/
+Licence: HDF5 (Hierarchical Data Format 5) Software Library and Utilities.
+https://github.com/HDFGroup/hdf5/blob/develop/COPYING
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Software Module: Boost C++ 
+You may compile the library and install locally. Follow the instructins
+of the package.
+Source: https://www.boost.org/
+Licence: https://www.boost.org/users/license.html
+
+//          Copyright Joe Coder 2004 - 2006.
+// Distributed under the Boost Software License, Version 1.0.
+//    (See accompanying file LICENSE_1_0.txt or copy at
+//          https://www.boost.org/LICENSE_1_0.txt)
+
+----------------------------------------------------------------------
+
+======================================================================
+Tools and Utilities
+======================================================================
+----------------------------------------------------------------------
+Software: nodejs. Install from the linux distribution packages.
+npm packages: 
+sudo npm install -g yamltojson
+sudo npm install -g jsontoyaml
+----------------------------------------------------------------------

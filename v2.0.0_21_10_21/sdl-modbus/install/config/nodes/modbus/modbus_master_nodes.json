@@ -1,0 +1,151 @@
+[
+  {
+    "controller": {
+      "id": "C001",
+      "type": "modbus-master",
+      "attributes": {
+        "name": "About MODBUS Contoller",
+        "logger_code": "modbus-master-C001",
+        "controller_logger_name": "modbus-master-controller-1",
+        "api_server_listen_address": "localhost",
+        "api_server_listen_port": 11401,
+        "api_server_threads": 2,
+        "directory": "modbus",
+        "config_file_name": "modbus_master_nodes.json",
+        "is_slave": false,
+        "is_master": true
+      },
+      "ncap": {
+        "backends": [
+          {
+            "ncap_backend": "mqtt",
+            "mqtt_broker_address": "localhost",
+            "mqtt_broker_port": 1883,
+            "encryption": 0,
+            "fc_rules": "animal.clp"
+          }
+        ]
+      },
+      "agents": [
+        {
+          "agent": {
+            "id": "A001",
+            "type": "modbus-master",
+            "attributes": {
+              "agent_name": "My Home Modbus Gateway",
+              "agent_logger_name": "modbus-master-agent-A001",
+              "agent_address": "http://localhost:11401/:agent",
+              "agent_api_key": "AGENT+SECRET+TRUST+KEY",
+              "max_nodes": 1
+            },
+            "node": {
+              "id": "N001",
+              "type": "modbus-master",
+              "attributes": {
+                "node_name": "Name of the MODBUS smart transducer.",
+                "node_address": "http://localhost:11401/:agent/:node",
+                "node_api_key": "NODE+SECRET+TRUST+KEY"
+              },
+              "modbus_master": {
+                "slave_device": {
+                  "slave_id": 1,
+                  "slave_address": "127.0.0.1",
+                  "slave_port": 1502,
+                  "refresh_interval_ms": 1000,
+                  "modbus_mapping": {
+                    "coil_blocks": [
+                      {
+                        "block_id": 0,
+                        "bits_start_address": 0,
+                        "nb_bits": 0,
+                        "bits_end_address": 0,
+                        "block_refresh_interval_ms": 2000,
+                        "eu_quantity": "ON/OFF",
+                        "eu_factor": "",
+                        "eu_manifest_constant": 4
+                      },
+                      {
+                        "block_id": 1,
+                        "bits_start_address": 512,
+                        "nb_bits": 0,
+                        "bits_end_address": 0,
+                        "block_refresh_interval_ms": 0,
+                        "eu_quantity": "ON/OFF",
+                        "eu_factor": "",
+                        "eu_manifest_constant": 4
+                      }
+                    ],
+                    "input_bits_blocks": [
+                      {
+                        "block_id": 0,
+                        "input_bits_start_address": 0,
+                        "nb_input_bits": 0,
+                        "input_bits_end_address": 0,
+                        "block_refresh_interval_ms": 0,
+                        "eu_quantity": "ON/OFF",
+                        "eu_factor": "",
+                        "eu_manifest_constant": 4
+                      },
+                      {
+                        "block_id": 1,
+                        "input_bits_start_address": 0,
+                        "nb_input_bits": 0,
+                        "input_bits_end_address": 0,
+                        "block_refresh_interval_ms": 2000,
+                        "eu_quantity": "ON/OFF",
+                        "eu_factor": "",
+                        "eu_manifest_constant": 4
+                      }
+                    ],
+                    "input_register_blocks": [
+                      {
+                        "block_id": 0,
+                        "input_registers_start_address": 0,
+                        "nb_input_registers": 0,
+                        "input_registers_end_address": 10,
+                        "block_refresh_interval_ms": 0,
+                        "eu_quantity": "°C",
+                        "eu_factor": "",
+                        "eu_manifest_constant": 0
+                      },
+                      {
+                        "block_id": 1,
+                        "input_registers_start_address": 3200,
+                        "nb_input_registers": 0,
+                        "input_registers_end_address": 3240,
+                        "block_refresh_interval_ms": 2000,
+                        "eu_quantity": "°C",
+                        "eu_factor": "",
+                        "eu_manifest_constant": 0
+                      }
+                    ],
+                    "register_blocks": [
+                      {
+                        "block_id": 2,
+                        "registers_start_address": 21,
+                        "nb_registers": 1,
+                        "registers_end_address": 21,
+                        "block_refresh_interval_ms": 10000,
+                        "eu_quantity": "Units",
+                        "eu_factor": "",
+                        "eu_manifest_constant": 0
+                      }
+                    ]
+                  }
+                },
+                "measurement_pub_api_url": "http://localhost:11401/VirtualModbusDevice/Measurement/PublishData"
+              },
+              "descriptors": {
+                "thing": {
+                  "identifier": "ABCD-1234-YYYY",
+                  "description": "This thing represents an asset @your factory",
+                  "url": "https://semanticweb.vidcentum.tech/api/singletons/get/virtualmodbusdevices0001"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+]

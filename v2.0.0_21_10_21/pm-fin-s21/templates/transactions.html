@@ -1,0 +1,64 @@
+{% extends "base-index-tp.html" %}
+{% block head %}
+    {{ super() }}
+
+    <script type="text/javascript" charset="utf-8">
+      $(document).ready(function() {
+            $('#sidebar-iot-data-btn').click(function(){
+
+                location.href = "/";
+                location.replace();
+
+                document.getElementById("sidebar-txn-btn").classList.remove('active');
+                document.getElementById("sidebar-txn-btn").classList.remove('disabled');
+
+                document.getElementById("sidebar-iot-data-btn").classList.remove('active');
+                document.getElementById("sidebar-iot-data-btn").classList.add('active');
+                document.getElementById("sidebar-iot-data-btn").classList.add('disabled');
+            });
+
+            $('#sidebar-txn-btn').click(function(){
+
+                document.getElementById("sidebar-iot-data-btn").classList.remove('active');
+                document.getElementById("sidebar-iot-data-btn").classList.remove('disabled');
+
+                document.getElementById("sidebar-txn-btn").classList.remove('active');
+                document.getElementById("sidebar-txn-btn").classList.add('active');
+                document.getElementById("sidebar-txn-btn").classList.add('disabled');
+
+            });
+
+            // Sidebar simple state management.
+            document.getElementById("sidebar-iot-data-btn").classList.remove('active');
+            document.getElementById("sidebar-iot-data-btn").classList.remove('disabled');
+
+            document.getElementById("sidebar-txn-btn").classList.remove('active');
+            document.getElementById("sidebar-txn-btn").classList.add('active');
+            document.getElementById("sidebar-txn-btn").classList.add('disabled');
+        });
+    </script>
+{% endblock %}
+
+<!-- Page content-->
+{% block content %}
+    <div class="container-fluid">
+        <h2 class="mt-4 text-center">IoT Enabled Financial Transactions</h2>
+        <div class="container mt-4">
+          <div class="row justify-content-md-center">
+              <div class="card shadow p-3 mb-5 rounded">
+                <div class="card-body">
+                  <h5 class="card-title">Payment APIs</h5>
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Features</h5>
+                  <p class="card-text">
+                    Provider: <b>NPCI</b> <br>
+                    Environment: <b>Sandbox</b>
+                  </p>
+                  <a href="/logout" class="btn btn-danger">Logout</a>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+{% endblock %}

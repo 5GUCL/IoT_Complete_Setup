@@ -1,0 +1,234 @@
+---
+  #############################################################################
+  #
+  # Group of modbus-master controllers
+  #
+  #############################################################################
+  #
+  # Broad structure of the config file
+  # one controller has [ one or more agents ]
+  #                           each agent has { one node }
+  #                                                node has { one modbus_master }
+  #
+  #############################################################################
+  -
+    controller:
+      # The controller ID should be unique. Do not use any special characters.
+      # It can be alpha-numeric Avoid <spaces> in the ID string.
+      id: "C001"
+      type: "modbus-master"
+      attributes:
+        name: "About MODBUS Contoller"
+        #
+        # Logging.
+        # Every controller has its own logging. So, the logger_code and controller_logger_name
+        # should be unique across the system.
+        # It can be alpha-numeric Avoid <spaces>.
+        logger_code: "modbus-master-C001"
+        controller_logger_name: "modbus-master-controller-1"
+        #
+        # Every controller has an API server for agents and other components to interact with the
+        # controller. So, the port numbers must be unique.
+        api_server_listen_address: "localhost"
+        api_server_listen_port: 11401
+        #
+        # Do not tet this more than maximum of CPUs. Usually this number 2 will work.
+        # Do not change unless you have heavy traffic 1000's of messages per second.
+        api_server_threads: 2
+        #
+        # current directory under $config_node.
+        directory: "modbus"
+        config_file_name: "modbus_master_nodes.json"
+        #
+        # Type of modbus.
+        is_slave: false
+        is_master: true
+      ncap:
+        # NCAP is Network Capable Application Processor
+        # Define NCAP for each controller
+        # About RULES. Every backend like MQTT/XMPP/WebSockets/REST etc
+        # can execute rules before / after network processing.
+        # e.g fc_rules: "animal.clp"
+        backends:
+          -
+            ncap_backend: "mqtt"
+            mqtt_broker_address: "localhost"
+            # The default unencrypted MQTT port is 1883. The encrypted port is 8883
+            mqtt_broker_port: 1883
+            # 1 encrypted | 0 unencrypted
+            encryption: 0
+            fc_rules: "animal.clp"
+      agents:
+        -
+          agent:
+            # The agent ID should be unique. Do not use any special characters.
+            # It can be alpha-numeric Avoid <spaces> in the ID string.
+            id: "A001"
+            type: "modbus-master"
+            attributes:
+              agent_name: "My Home Modbus Gateway"
+              #
+              # Logging.
+              # Every agent has its own logging but resides under its controller log directory.
+              # So, agent_logger_name should be unique across the system.
+              # It can be alpha-numeric Avoid <spaces>.
+              agent_logger_name: "modbus-master-agent-A001"
+              #
+              # External applications can communicate with the agent through its controller interface.
+              # Subsequent releases will have the hooks.
+              agent_address: "http://localhost:11401/:agent"
+              agent_api_key: "AGENT+SECRET+TRUST+KEY"
+              #
+              # Every agent has only one node.
+              max_nodes: 1
+            node:
+              # The node ID should be unique. Do not use any special characters.
+              # It can be alpha-numeric Avoid <spaces> in the ID string.
+              id: "N001"
+              type: "modbus-master"
+              attributes:
+                node_name: "Name of the MODBUS smart transducer."
+                #
+                # External applications can communicate with the node through its agent interface.
+                # Subsequent releases will have the hooks.
+                node_address: "http://localhost:11401/:agent/:node"
+                node_api_key: "NODE+SECRET+TRUST+KEY"
+              modbus_master:
+                # modbus master node connects with one slave device.
+                # The slave_id, address and port and mappings should be changed as per the application
+                # and deployment. The values are for example purpose only.
+                # The mappings corresponds to local modbus server.
+                slave_device:
+                  slave_id: 1
+                  slave_address: "127.0.0.1"
+                  slave_port: 1502
+                  #
+                  # Modbus master polls slave at every refresh_interval_ms.
+                  # You can overrirde this polling interval for individual registers or coils or input bits.
+                  refresh_interval_ms: 1000
+                  #
+                  # Please refer to modbus standard to understand the
+                  # a) coils (bits)
+                  # b) input bits
+                  # c) holding registers
+                  # d) input registers
+                  modbus_mapping:
+                    # This is application specific mapping.
+                    coil_blocks:
+                      -
+                        # Each block represents a memory in the slave. So you should carefully
+                        # map the address space.
+                        # Note: block is convenient separation of the address space only.
+                        block_id: 0
+                        bits_start_address: 0
+                        nb_bits: 0
+                        bits_end_address: 0
+                        # Setting it 0 to use refresh_interval_ms.
+                        # Setting it other than 1000 (min interval) overrides refresh_interval_ms.
+                        block_refresh_interval_ms: 2000
+                        #
+                        # Engineering units
+                        # SI Units: Base units, Derived units and non SI units.
+                        # Factor: deca, hecta ... zepto, yocto
+                        eu_quantity: "ON/OFF"
+                        eu_factor: ""
+                        # 0 - 4
+                        eu_manifest_constant: 4
+                      -
+                        block_id: 1
+                        bits_start_address: 512
+                        nb_bits: 0
+                        bits_end_address: 0
+                        # Setting it 0 to use refresh_interval_ms.
+                        # Setting it other than 1000 (min interval) overrides refresh_interval_ms.
+                        block_refresh_interval_ms: 0
+                        #
+                        # Engineering units
+                        # SI Units: Base units, Derived units and non SI units.
+                        # Factor: deca, hecta ... zepto, yocto
+                        eu_quantity: "ON/OFF"
+                        eu_factor: ""
+                        eu_manifest_constant: 4
+                    input_bits_blocks:
+                      -
+                        block_id: 0
+                        input_bits_start_address: 0
+                        nb_input_bits: 0
+                        input_bits_end_address: 0
+                        block_refresh_interval_ms: 0
+                        #
+                        # Engineering units
+                        # SI Units: Base units, Derived units and non SI units.
+                        # Factor: deca, hecta ... zepto, yocto
+                        eu_quantity: "ON/OFF"
+                        eu_factor: ""
+                        eu_manifest_constant: 4
+                      -
+                        block_id: 1
+                        input_bits_start_address: 0
+                        nb_input_bits: 0
+                        input_bits_end_address: 0
+                        block_refresh_interval_ms: 2000
+                        #
+                        # Engineering units
+                        # SI Units: Base units, Derived units and non SI units.
+                        # Factor: deca, hecta ... zepto, yocto
+                        eu_quantity: "ON/OFF"
+                        eu_factor: ""
+                        eu_manifest_constant: 4
+                    input_register_blocks:
+                      -
+                        # Every block may have to have similar engineering units.
+                        block_id: 0
+                        input_registers_start_address: 0
+                        nb_input_registers: 0
+                        input_registers_end_address: 10
+                        block_refresh_interval_ms: 0
+                        #
+                        # Engineering units
+                        # SI Units: Base units, Derived units and non SI units.
+                        # Factor: deca, hecta ... zepto, yocto
+                        eu_quantity: "°C"
+                        eu_factor: ""
+                        eu_manifest_constant: 0
+                      -
+                        block_id: 1
+                        input_registers_start_address: 3200
+                        nb_input_registers: 0
+                        input_registers_end_address: 3240
+                        block_refresh_interval_ms: 2000
+                        #
+                        # Engineering units
+                        # SI Units: Base units, Derived units and non SI units.
+                        # Factor: deca, hecta ... zepto, yocto
+                        eu_quantity: "°C"
+                        eu_factor: ""
+                        eu_manifest_constant: 0
+                    register_blocks:
+                      -
+                        block_id: 2
+                        registers_start_address: 21
+                        nb_registers: 1
+                        registers_end_address: 21
+                        block_refresh_interval_ms: 10000
+                        eu_quantity: "Units"
+                        eu_factor: ""
+                        eu_manifest_constant: 0
+                #
+                # This is the API that every agent:node posts its measurements to the controller.
+                # Ensure api_server_listen_address and api_server_listen_port are used here.
+                measurement_pub_api_url: "http://localhost:11401/VirtualModbusDevice/Measurement/PublishData"
+              descriptors:
+                #
+                # Now we move to a higher level of abstraction - Thing.
+                # One or more modbus devices that "represents" an asset can be defined as thing.
+                # The thing meta data follows your application standard.
+                #
+                thing:
+                  # The Thing ID should be unique (UUID). Do not use any special characters.
+                  # It can be alpha-numeric Avoid <spaces> in the ID string.
+                  identifier: "ABCD-1234-YYYY"
+                  description: "This thing represents an asset @your factory"
+                  #
+                  # Meta data / definiton of things.
+                  url: "https://semanticweb.vidcentum.tech/api/singletons/get/virtualmodbusdevices0001"

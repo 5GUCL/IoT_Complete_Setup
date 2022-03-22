@@ -1,0 +1,8 @@
+//! Root namespace.
+namespace	cpp_util_3
+{
+
+	//! Implementation details.
+	namespace	impl
+	{}
+}
